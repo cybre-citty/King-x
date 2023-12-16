@@ -42,8 +42,8 @@ module.exports = {
   heroku:  process.env.heroku === undefined ? false : process.env.heroku,
   HEROKU: {
     HEROKU: process.env.HEROKU ||false,
-    API_KEY: process.env.HEROKU_API_KEY === undefined ? '1abfce1e-1bee-4334-9f6c-f4c1cb1cafab' : process.env.HEROKU_API_KEY,
-    APP_NAME: process.env.HEROKU_APP_NAME === undefined ? 'zeropgg' : process.env.HEROKU_APP_NAME
+    API_KEY: process.env.HEROKU_API_KEY === undefined ? 'fa3e957b-309b-4930-8fe0-fbc95eb498e8' : process.env.HEROKU_API_KEY,
+    APP_NAME: process.env.HEROKU_APP_NAME === undefined ? 'King Boy' : process.env.HEROKU_APP_NAME
 },
   VERSION: process.env.VERSION === undefined ? 'v.0.0.1' : process.env.VERSION,
   LANG: process.env.THEME|| 'QUEEN-NICKY',
