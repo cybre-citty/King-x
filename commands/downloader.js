@@ -468,6 +468,8 @@ if (text.startsWith("https://youtube.com/shorts/")) {
 
 cmd({
             pattern: "ytmp4",
+	     react: "📺",
+	    alias :['yt4','යුටියුබ්4','வலைஒளி4'],
             desc: "Downloads video from youtube.",
             category: "downloader",
             filename: __filename,
@@ -508,7 +510,7 @@ cmd({
                         jpegThumbnail: log0,
                         mimetype: 'video/mp4',
                         fileName: `${titleYt}.mp4`,
-                        caption: ` ⿻ Title : ${titleYt}\n ⿻ File Size : ${fileSizeInMegabytes} MB`,
+                        caption: ` ❤️ *Title* : ${titleYt}\n 🗂️ *File Size* : ${fileSizeInMegabytes} MB\n🙈 *Viewers:* ${anu.views}\n⏳ *Duration:* ${anu.timestamp}`,
                         headerType: 4,
                         contextInfo: {
                             externalAdReply: {
