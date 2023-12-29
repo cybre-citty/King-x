@@ -52,16 +52,18 @@ cmd({
 	await Void.sendMessage(citel.chat , {document : { url : url }, fileName:  filename,mimetype: 'application/zip',  })
 
 	})
-    //---------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 cmd({
             pattern: "tts",
+	    alias :['sound','ශබ්ද','ஒலிக்கிறது'],
+	    react: "🎙️", 
             desc: "text to speech.",
             category: "downloader",
             filename: __filename,
             use: '<Hii,this is Secktor>',
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply('Please give me Sentence to change into audio.')
+            if (!text) return citel.reply('Please give me Sentence to change into audio *EX:love*.')
             let texttts = text
             const ttsurl = googleTTS.getAudioUrl(texttts, {
                 lang: "en",
@@ -83,6 +85,8 @@ cmd({
      //---------------------------------------------------------------------------
      cmd({
         pattern: "yts",
+	alias :['youtubesearch ','යුටියුබ්සොයන්න','வலைஒளி'],
+	 react: ['🔍','📝'], 
         desc: "Gives descriptive info of query from youtube..",
         category: "downloader",
         filename: __filename,
