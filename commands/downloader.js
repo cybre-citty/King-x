@@ -120,6 +120,8 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "video",
+	    alias :['vd','විඩීයො','காணொளி'],
+            react: "🎥",
             desc: "Downloads video from yt.",
             category: "downloader",
             filename: __filename,
@@ -127,8 +129,51 @@ cmd({
         },
         async(Void, citel, text) => {
             let yts = require("secktor-pack");
-            let search = await yts(text);
+            let textYt;        
+if (text.startsWith("https://youtube.com/shorts/")) {
+  const svid = text.replace("https://youtube.com/shorts/", "https://youtube.com/v=");
+  const s2vid = svid.split("?feature")[0];
+  textYt = s2vid;
+} else {
+  textYt = text;
+}
+            let search = await yts(textYt);
             let anu = search.videos[0];
+                               let buttonMessaged = {
+                image: {
+                    url: anu.thumbnail,
+                },
+                caption: `
+╭──────────────────╮
+
+*🫅KING-X VIDEO DOWNLOADER🫅*
+
+╰──────────────────╯
+ 
+│❤️ *Title:* ${anu.title}
+│
+│⏳ *Duration:* ${anu.timestamp}
+│
+│🙈 *Viewers:* ${anu.views}
+│
+│⚜️ *Uploaded:* ${anu.ago}
+│
+│👑 *Author:* ${anu.author.name}
+│
+│📡 *Url* : ${anu.url}
+│
+╰───────────────────╯
+*𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃*
+ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ${Config.ownername}
+`,
+                footer: tlang().footer,
+                headerType: 4,
+            };
+            await Void.sendMessage(citel.chat, buttonMessaged, {
+                quoted: citel,
+		
+            })
+            
             let urlYt = anu.url
             const getRandom = (ext) => {
                 return `${Math.floor(Math.random() * 10000)}${ext}`;
@@ -137,7 +182,7 @@ cmd({
                 if (infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
                 let titleYt = infoYt.videoDetails.title;
                 let randomName = getRandom(".mp4");
-                citel.reply('*Downloadig:* '+titleYt)
+             //   citel.reply('*Downloadig:* '+titleYt)
                 const stream = ytdl(urlYt, {
                         filter: (info) => info.itag == 22 || info.itag == 18,
                     })
@@ -152,25 +197,29 @@ cmd({
                 if (fileSizeInMegabytes <= dlsize) {
                     let buttonMessage = {
                         video: fs.readFileSync(`./${randomName}`),
-                        jpegThumbnail: log0,
                         mimetype: 'video/mp4',
                         fileName: `${titleYt}.mp4`,
-                        caption: ` ⿻ Title : ${titleYt}\n ⿻ File Size : ${fileSizeInMegabytes} MB`,
-                        headerType: 4,
-                        contextInfo: {
-                            externalAdReply: {
-                                title: titleYt,
-                                body: citel.pushName,
-                                thumbnail: await getBuffer(search.all[0].thumbnail),
-                                renderLargerThumbnail: true,
-                                mediaType: 2,
-                                mediaUrl: search.all[0].thumbnail,
-                                sourceUrl: search.all[0].thumbnail
-                            }
-                        }
-                    }
-                 Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
-                 return fs.unlinkSync(`./${randomName}`);
+                        caption:` 
+╭──────────────────
+│ ❤ *Title:* ${anu.title}
+│
+│ ⏳ *Duration:* ${anu.timestamp}
+│
+│ 🙈 *Viewers:* ${anu.views}
+│
+│ 📑 *Uploaded:* ${anu.ago}
+╰────────────────────
+*𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙳 ❤*
+ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ${Config.ownername}
+ `,   
+		    }
+                 const txt2 = await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+
+                await Void.sendMessage(citel.chat, { react: {
+        text: "✔️",
+        key: txt2.key,
+            } } );
+			
                 } else {
                     citel.reply(`❌ File size bigger than 100mb.`);
                 }
