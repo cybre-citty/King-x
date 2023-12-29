@@ -1,13 +1,3 @@
-/**
- Copyright (C) 2022.
- Licensed under the  GPL-3.0 License;
- You may not use this file except in compliance with the License.
- It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md
- * @author : SamPandey001 <https://github.com/SamPandey001>
- * @description : Secktor,A Multi-functional whatsapp bot.
- * @version 0.0.6
- **/
 
 const moment = require('moment-timezone')
 const {fetchJson,cmd, tlang } = require('../lib')
@@ -18,9 +8,9 @@ const fetch = require('node-fetch')
     //---------------------------------------------------------------------------
 cmd({
             pattern: "movie",
-            alias :['imdb','.චිත්රපටය','திரைப்படம்'],
-             react: "🎬",
+            alias :['imdb','චිත්‍රපටි'],
             category: "search",
+            react: "🎬",
             desc: "Sends image of asked Movie/Series.",
             use: '<text>',
             filename: __filename,
@@ -30,7 +20,7 @@ cmd({
             let fids = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${text}&plot=full`);
             let imdbt = "";
             console.log(fids.data)
-            imdbt += "⚍⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚍\n" + " ``` 𝕀𝕄𝔻𝔹 𝕊𝔼𝔸ℝℂℍ```\n" + "⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎\n";
+            imdbt += "⚍⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚍\n" + " ``` 𝕂𝕀ℕ𝔾-𝕏 𝕊𝔼𝔸ℝℂℍ```\n" + "⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎\n";
             imdbt += "🎬Title      : " + fids.data.Title + "\n";
             imdbt += "📅Year       : " + fids.data.Year + "\n";
             imdbt += "⭐Rated      : " + fids.data.Rated + "\n";
@@ -62,9 +52,9 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "weather",
-           alias :['කාලගුණය','.wt','வானிலை'],
-             react: "🌦️",
+            alias :['කලගුනය'],
             category: "search",
+            react: "⛅",
             desc: "Sends weather info about asked place.",
             use: '<location>',
             filename: __filename,
@@ -76,16 +66,16 @@ cmd({
             );
             let textw = "";
             textw += `*🌟Weather of  ${text}*\n\n`;
-            textw += `*🌦️Weather:-* ${wdata.data.weather[0].main}\n`;
-            textw += `*📰Description:-* ${wdata.data.weather[0].description}\n`;
+            textw += `*⛅Weather:-* ${wdata.data.weather[0].main}\n`;
+            textw += `*📋Description:-* ${wdata.data.weather[0].description}\n`;
             textw += `*🌡️Avg Temp:-* ${wdata.data.main.temp}\n`;
-            textw += `*👻Feels Like:-* ${wdata.data.main.feels_like}\n`;
-            textw += `*🌪️Pressure:-* ${wdata.data.main.pressure}\n`;
-            textw += `*☔Humidity:-* ${wdata.data.main.humidity}\n`;
-            textw += `*☔Humidity:-* ${wdata.data.wind.speed}\n`;
+            textw += `*💁‍♂️Feels Like:-* ${wdata.data.main.feels_like}\n`;
+            textw += `*🌬️Pressure:-* ${wdata.data.main.pressure}\n`;
+            textw += `*💧Humidity:-* ${wdata.data.main.humidity}\n`;
+            textw += `*❄️Humidity:-* ${wdata.data.wind.speed}\n`;
             textw += `*🌍Latitude:-* ${wdata.data.coord.lat}\n`;
             textw += `*🌎Longitude:-* ${wdata.data.coord.lon}\n`;
-            textw += `*🦩Country:-* ${wdata.data.sys.country}\n`;
+            textw += `*🌏Country:-* ${wdata.data.sys.country}\n`;
 
             Void.sendMessage(
                 citel.chat, {
@@ -100,7 +90,9 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "horo",
+            alias :['කෙන්දරෙ'],
             category: "search",
+            react: "📝",
             desc: "Gives horoscope info of user.",
             use: '<sign>\n:Example: horo libra',
             filename: __filename,
@@ -118,14 +110,14 @@ cmd({
                         console.log(date);
                         let textw = "";
                         textw += `*🌟 Horoscope of  ${text}*\n\n`;
-                        textw += `*Current Date:* ${json.current_date}.\n`;
-                        textw += `*Sign:* ${text}.\n`;
-                        textw += `*Lucky Time:* ${json.lucky_time}.\n`;
-                        textw += `*Compatibility:* ${json.compatibility}.\n`;
-                        textw += `*Lucky Number:* ${json.lucky_number}.\n`;
-                        textw += `*Lucky Color:* ${json.color}.\n`;
-                        textw += `*Today Mood:* ${json.mood}.\n`;
-                        textw += `*Overall:* ${json.description}.\n`;
+                        textw += `*📅Current Date:* ${json.current_date}.\n`;
+                        textw += `*✍️Sign:* ${text}.\n`;
+                        textw += `*⌚Lucky Time:* ${json.lucky_time}.\n`;
+                        textw += `*👫Compatibility:* ${json.compatibility}.\n`;
+                        textw += `*🪄Lucky Number:* ${json.lucky_number}.\n`;
+                        textw += `*🌈Lucky Color:* ${json.color}.\n`;
+                        textw += `*😘Today Mood:* ${json.mood}.\n`;
+                        textw += `*👍Overall:* ${json.description}.\n`;
                         citel.reply(textw)
                     });
 
@@ -134,11 +126,44 @@ cmd({
             }
         }
     )
+//---------------------------------------------------------------------------
+
+cmd({
+
+            pattern: 'ehi6',
+ 
+            alias :['e6','එහි6'],
+
+            desc: 'Sends ehi',
+
+            category: "ehi downloader",
+
+            react: "6️⃣",
+
+            filename: __filename,
+
+            use:'<does this>',
+
+        },
+          async(Void,citel,text) => {
+              return Void.sendMessage(citel.chat,{  
+      document: {  
+       
+       url: 'https://github.com/Theekshanamax/Ehi-fils/tree/main/ehi6',
+       },
+       fileName: 'Mobitel Zero ❣️.ehi',  
+      mimetype: "application/octet-stream",
+      },
+         {
+             quoted: citel,  
+  })
+    });    
     //---------------------------------------------------------------------------
     cmd({
         pattern: "google",
-        alias :['search','gsearch'],
+        alias :['search','gsearch','ගුගල්'],
         category: "search",
+         react: "🛰️",
         desc: "Sends info of given query from Google Search.",
         use: '<text>',
         filename: __filename,
@@ -158,10 +183,129 @@ cmd({
         })
     }
 )
-    //---------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------
+cmd({  
+      pattern: "sirasa",  
+      alias: ["004","sn"],  
+      react: "📰",  
+      desc: "nasa",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const nasa = await fetchJson(`https://queen-api.onrender.com/api/news/sirasa-news`);  
+  
+            const images = `${nasa.result.image}`  
+             const title = `${nasa.result.title}` 
+             const news = `${nasa.result.description}` 
+  
+  await Void.sendMessage(citel.chat,  { image: { url: images }, caption: `\n*${ title }*\n\n _${news}._\n\n*`}, { quoted: citel })  
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
+//--------------------------------------------------------------------------
+cmd({  
+      pattern: "wabeta",  
+      alias: ["005"],  
+      react: "📰",  
+      desc: "nasa",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const nasa = await fetchJson(`https://queen-api.onrender.com/api/news/wabeta-news`);  
+  
+             const images = `${nasa.result.image}`  
+             const title = `${nasa.result.title}` 
+             const news = `${nasa.result.description}` 
+             const url =`${nasa. result. url} `
+  
+  await Void.sendMessage(citel.chat,  { image: { url: images }, caption: `\n*${ title }*\n\n _${news}._\n\n*`}, { quoted: citel })  
+  }  
+  catch(e){  
+  console.log(e)  
+  }}) 
+//--------------------------------------------------------------------------
+cmd({  
+      pattern: "esana",  
+      alias: ["003","en"],  
+      react: "📰",  
+      desc: "esana",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const nasa = await fetchJson(`https://queen-api.onrender.com/api/news/esana-news`);  
+  
+            const images = `${nasa.result.image}`  
+             const title = `${nasa.result.title}` 
+             const news = `${nasa.result.description}`  
+  
+  await Void.sendMessage(citel.chat,  { image: { url: images }, caption: `\n*${ title }*\n\n _${news}._\n\n*`}, { quoted: citel })  
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
+//--------------------------------------------------------------------------
+cmd({  
+      pattern: "hiru",  
+      alias: ["002","hn"],  
+      react: "📰",  
+      desc: "hiru",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const nasa = await fetchJson(`https://queen-api.onrender.com/api/news/hiru-news`);  
+  
+            const images = `${nasa.result.image}`  
+             const title = `${nasa.result.title}` 
+             const news = `${nasa.result.description}`  
+  
+  await Void.sendMessage(citel.chat,  { image: { url: images }, caption: `\n*${ title }*\n\n _${news}._\n\n*`}, { quoted: citel })  
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
+//--------------------------------------------------------------------------
+cmd({  
+      pattern: "nasa",  
+      alias: ["001","ns"],  
+      react: "🛸",  
+      desc: "nasa",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const nasa = await fetchJson(`https://queen-api.onrender.com/api/news/nasa-news`);  
+  
+            const images = `${nasa.result.image}`  
+             const title = `${nasa.result.title}` 
+             const news = `${nasa.result.description}`  
+  
+  await Void.sendMessage(citel.chat,  { image: { url: images }, caption: `\n*${ title }*\n\n _${news}._\n\n*`}, { quoted: citel })  
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
+//---------------------------------------------------------------------------
 cmd({
             pattern: "image",
+            alias :['img','රුප'],
             category: "search",
+            react: "🏞️",
             desc: "Searches Image on Google",
             use: '<text>',
             filename: __filename,
@@ -181,7 +325,7 @@ cmd({
                         image: {
                             url: images,
                         },
-                        caption: `_Sector Image Search_\n*${name1}*`,
+                        caption: `_🫅King-x Image Search_\n*${name1}*`,
                         headerType: 4,
                     };
                     Void.sendMessage(citel.chat, buttonMessage, {
@@ -192,8 +336,10 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "couplepp",
+            pattern: "anime",
+            alias :['couplepp','ඇනිමෙෂන්'],
             category: "search",
+           react: "💛",
             desc: "Sends two couples pics.",
             filename: __filename,
         },
@@ -206,15 +352,17 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-        pattern: "iswa",
+        pattern: "whatsapp",
+      alias :['hack'],
         category: "search",
+       react: "🧲",
         desc: "Searches in given rage about given number.",
-        use: '9112345678xx',
+        use: '9476345678xx',
         filename: __filename,
     },
     async(Void, citel, text) => {
         var inputnumber = text.split(" ")[0]
-        if (!inputnumber.includes('x')) return citel.reply('You did not add x\nExample: iswa 9196285162xx')
+        if (!inputnumber.includes('x')) return citel.reply('You did not add x\nExample: Whatsapp 9476345678xx')
         citel.reply(`Searching for WhatsApp account in given range...`)
 
         function countInstances(string, word) {
