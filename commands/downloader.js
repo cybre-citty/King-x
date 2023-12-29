@@ -33,14 +33,15 @@ function __lobz(){const H=['R53FWbciV9','reply','rbot_18407','\x5c(\x20*\x5c)','
     //---------------------------------------------------------------------------
 cmd({
             pattern: "git",
-	    react: "🙃",
+	    alias :['github','ගිට්','கிதுப்'],
+	    react: "📦",
             desc: "Downloads apks  .",
             category: "downloader",
             filename: __filename,
             use: '<add sticker url.>',
         },
         async(Void, citel, text) => {
-	if (!text) return await citel.reply('*Provide Repo Url, Ex:- _.gitclone https:QUEEN NICKY MD_*') 
+	if (!text) return await citel.reply('*Provide Repo Url, Ex:- _.git king-x_*') 
     const regex = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     if (!regex.test(text) ) return await citel.reply('*Uhh Please, Provide Valid Repositry Url*');
     let [_, user, repo] = text.match(regex) || []
