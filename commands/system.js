@@ -114,7 +114,7 @@ cmd({
         if(mime !='videoMessage' && mime !='imageMessage' ) return await citel.reply("Uhh Please, Reply To An Image/Video")
         let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
         let anu = await TelegraPh(media);
-        await citel.reply('Queen nicky is URL of your media.\n'+util.format(anu));
+        await citel.reply('*Here is URL of your media.\n'+util.format(anu));
         return await fs.unlinkSync(media);
     })
 
@@ -243,47 +243,32 @@ cmd({
             desc: "is bot alive??"
         },
         async(Void, citel, text, isAdmins) => {
-Void.sendMessage(citel.chat, { 
-              react: { 
-                  text: "💃", 
-                  key: citel.key 
-              } 
-          }) 
-          await Void.sendPresenceUpdate('recording', citel.chat);
-          await Void.sendMessage(citel.chat, { audio: {url : 'https://raw.githubusercontent.com/X-Notiya/DarkQueen-Auto-Voice-Sender/main/Hi.mp3',}, mimetype: 'audio/mpeg', ptt: true }, { quoted: citel, });
-            let alivemessage = Config.ALIVE_MESSAGE || `*A bot developed by Dumidu.*`
+            let alivemessage = Config.ALIVE_MESSAGE || `*A bot developed by SamPandey001.*`
             const alivtxt = `
-🤗 *Hello, ${citel.pushName},*
-
-🥽 This is  ${tlang().title}.
-
+*Hello, ${citel.pushName},*
+_This is  ${tlang().title}._
 ${alivemessage}
 
-*┏╼[ _👨‍💻 𝐐𝐔𝐄𝐄𝐍 𝐍𝐈𝐂𝐊𝐘 𝐌𝐃 𝐕1👨‍💻_]╾❋*
-┣⃞❑⃝🖲️⃟➤ *𝐜𝐫𝐞𝐚𝐭𝐞𝐝 𝐛𝐲* 『ᴅᴜᴍɪᴅᴜ』
-┣⃞❑⃝🎭⃟➤ *𝙾𝚆𝙽 𝙽𝙱* 『94742443114』
-┣⃞❑⃝🍁⃟➤ *𝚄𝙿𝚃𝙸𝙼𝙴* ${runtime(process.uptime())}
-┣⃞❑⃝💕⃟➤ *𝙱𝚁𝙰𝙽𝙲* 『${Config.BRANCH}』
-┣⃞❑⃝🎩⃟➤ *𝚅𝙴𝚁𝚂𝙸𝙾𝙽* 0.1
+*Version:-* _0.0.7_
+*Uptime:-* _${runtime(process.uptime())}_
+*Owner:-* _${Config.ownername}_
+*Branch:-* _${Config.BRANCH}_
 
-*👨‍💻𝐒𝐔𝐏𝐏𝐎𝐑𝐓𝐄 𝐆𝐑𝐎𝐔𝐏👨‍💻*
-*https://chat.whatsapp.com/ClnojBuE3NCKtB69NDcRFe*
+_Type ${prefix}menu for my command list._
 
-┣⃞❑💃⃟➤ ● Type ${prefix}menu for my command list.
-
-┃ _ᴘᴏᴡᴇʀᴇᴅ ʙʏ ${Config.ownername}_*
-┗╼═╾╼═╾╼═╾╼═╾╼═╾❋`;
+_Powered by ${Config.ownername}_
+`;
             let aliveMessage = {
                 image: {
-                 url:  await botpic(),
-                       },
+                    url: await botpic(),
+                },
                 caption: alivtxt,
                 footer: tlang().footer,
                 headerType: 4,
             };
              return Void.sendMessage(citel.chat, aliveMessage, {
                 quoted: citel,
-            });     
+            });
 
         }
     )

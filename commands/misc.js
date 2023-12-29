@@ -341,7 +341,7 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
                              },
                          ];
                          let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                         await Void.sendButtonText(citel.chat, buttons, `Chatbot Status: ${chatbott.worktype} `, 'QUEEN-NICKY-MD', citel);
+                         await Void.sendButtonText(citel.chat, buttons, `Chatbot Status: ${chatbott.worktype} `, 'Secktor-Md', citel);
                         citel.reply(`Chatbot Status: ${chatbott.worktype} \n*Use:* ${prefix}chatbot on\n${prefix}chatbot off`)
                         }
              }
@@ -450,7 +450,6 @@ let buttons = [{
      //---------------------------------------------------------------------------
  cmd({
              pattern: "antilink",
-             react: "🛡️",
              desc: "activates and deactivates antilink.\nuse buttons to toggle.",
              category: "group",
              filename: __filename,
@@ -481,6 +480,26 @@ let buttons = [{
              await Void.sendButtonText(citel.chat, buttons, `Activate antilink:Deletes Link + kick`, Void.user.name, citel);
          }
      )
+     cmd({
+        pattern: 'ss',
+        alias :['webss' , 'fullss'],
+        category: "search",
+        desc: "Provides screenshot of given url",
+        use: '<text>',
+        filename: __filename,
+    },
+    async(Void, citel, text) => {
+let limit = 5;
+try {
+if (!text) return citel.reply("```Uhh Please, Give me Url!```");
+let urll = `https://s.vercel.app/api?url=${text.match(/\bhttps?:\/\/\S+/gi)[0]}&width=1280&height=720`
+let media  = await getBuffer(urll)
+return await Void.sendMessage(citel.chat ,{image : media } , {quoted:citel} )
+}
+catch (err) { return citel.reply("```Error While Fetching Snapshot```")}
+    }
+)
+
 
      //---------------------------------------------------------------------------
  cmd({ on: "body" }, async(Void, citel) => {

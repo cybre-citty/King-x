@@ -19,7 +19,7 @@ cmd({
     alias :['gpt'],
     desc: "chat with an AI(GPT)",
     category: "AI",
-    use: '<Hii,queen nicky>',
+    use: '<Hii,Secktor>',
     filename: __filename,
 },
 async(Void, citel,text) => {
@@ -115,12 +115,13 @@ cmd({
     },
     async(Void, citel) => {
         let { data } = await axios.get('https://api.github.com/repos/SamPandey001/Secktor-Md')
-        let cap = `ᴡᴇʟᴄᴏᴍᴇ ${citel.pushName}\n
+        let cap = `Hey ${citel.pushName}\n
 *⭐ Total Stars:* ${data.stargazers_count} stars
 *🍽️ Forks:* ${data.forks_count} forks
-*🍁 Repo:* https://github.com/QUEENNICKYMDv1/QUEEN-NICKY-MD-ERROR-FIX-v1
-*♾Group:* https://chat.whatsapp.com/E8F5pT0vqVbJjYEYcmQnBr
-*👩‍💻Conect owner number Dumidu :*-94742443114`
+*🍁 Repo:* citel-x.herokuapp.com/repo
+*Group:* citel-x.herokuapp.com/support
+*Deploy Your Own:*-
+citel-x.herokuapp.com`
         let buttonMessaged = {
             image: { url: await botpic() },
             caption: cap,
@@ -128,8 +129,8 @@ cmd({
             headerType: 4,
             contextInfo: {
                 externalAdReply: {
-                    title: "QUEEN NICKY REPO",
-                    body: "CREATED BY DUMIDU",
+                    title: "Secktor-Repo",
+                    body: "Easy to Use",
                     thumbnail: log0,
                     mediaType: 4,
                     mediaUrl: '',
@@ -157,10 +158,10 @@ cmd({
         latensie = speed() - timestampe;
         let ter = `
 🔰 *${tlang().title}* 🔰
-*🌟Description:* A WhatsApp bot with rich features, QUEEN NICKY MD BOT CREATER DUMIDU 
+*🌟Description:* A WhatsApp bot with rich features, build in NodeJs to make your WhatsApp enjoyable.
 *⚡Speed:* ${latensie.toFixed(4)} ms
 *🚦Uptime:* ${runtime(process.uptime())}
-*🕸Version:* 1.0
+*🕸Version:* 0.0.7
 *👤Owner:*  ${Config.ownername}
 *Powered by ${tlang().title}*
 `;
@@ -174,7 +175,7 @@ cmd({
             contextInfo: {
                 externalAdReply: {
                     title: tlang().title,
-                    body: `BOT STATUS CREATED BY DUMIDU`,
+                    body: `Bot-Status`,
                     thumbnail: log0,
                     mediaType: 2,
                     mediaUrl: ``,
@@ -191,9 +192,9 @@ cmd({
 
 //---------------------------------------------------------------------------
 cmd({
-    pattern: "tමe",
+    pattern: "theme",
     desc: "To find all themes",
-    category: "",
+    category: "general",
     filename: __filename,
 },
 async(Void, citel,text,{isCreator}) => {

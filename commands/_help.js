@@ -20,11 +20,11 @@ const Secktor = require('../lib/commands')
 
     //---------------------------------------------------------------------------
 Secktor.cmd({
-            pattern: "menu2",
-            alias: ["menu2"],
+            pattern: "help",
+            alias: ["menu"],
             desc: "Help list",
             category: "general",
-            react: "📃",
+            react: "✨",
             filename: __filename
         },
         async(Void, citel, text) => {
@@ -56,22 +56,22 @@ Secktor.cmd({
                 let str = `╭────《 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 》─────⊷\n`
                 str +=
                     '```' + `│ ╭──────────────◆
-│ │ 👩‍✈‍User:- ${citel.pushName}
-│ │ 💝Theme:- ${tlang().title}
-│ │ 🛑Prefix:- [ ${prefix} ]
-│ │ 👩‍💻Owner:- ${Config.ownername}
-│ │ 🚦Plugins:- ${commands.length}
-│ │ 🧓Users:- ${total}
-│ │ 🆙Uptime:- ${runtime(process.uptime())}
-│ │ Ⓜ️Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-│ │ 📟Time:- ${time}
-│ │ 🖲️Date:- ${date}
+│ │ User:- ${citel.pushName}
+│ │ Theme:- ${tlang().title}
+│ │ Prefix:- [ ${prefix} ]
+│ │ Owner:- ${Config.ownername}
+│ │ Plugins:- ${commands.length}
+│ │ Users:- ${total}
+│ │ Uptime:- ${runtime(process.uptime())}
+│ │ Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
+│ │ Time:- ${time}
+│ │ Date:- ${date}
 │ ╰──────────────◆
 ╰───────────────⊷\n
 ` + '```'
                 for (const category in cmds) 
                 {
-                   str += `╭────❏💃 *${tiny(category)}* 💃❏\n` ;
+                   str += `╭────❏ *${tiny(category)}* ❏\n` ;
                    if(text.toLowerCase() == category.toLowerCase()){ str = `╭─────❏ *${tiny(category)}* ❏\n` ;      
                         for (const plugins of cmds[category]) { str += `│ ${fancytext(plugins,1)}\n` ; }
                         str += `╰━━━━━━━━━━━━━──⊷\n`  ;
@@ -82,12 +82,11 @@ Secktor.cmd({
                    }
   
                 }
-                str+= `*🧙‍♂️ 𝚀𝚄𝙴𝙴𝙽 𝙽𝙸𝙲𝙺𝚈 𝙼𝙳*.\n👩‍💻 _𝙲𝚁𝙰𝚃𝙴𝙳 𝙱𝚈 𝙳𝚄𝙼𝙸𝙳𝚄_`
+                str+= `*⭐️Type:* _${prefix}help cmd_ name to know more about specific command.\n*Eg:* _${prefix}help attp_\n*Made with ❤️ in Nodejs* `
                 let buttonMessaged = {
                     image: { url: await botpic() },
                     caption: str
-               };
-             await Void.sendMessage(citel.chat, { audio: {url: "https://github.com/QUEENNICKYMDv1/QUEEN-NICKY-VOICE-CENTER-/blob/main/QUEEN%20NICKY%20.mp3" }, mimetype: 'audio/mp4', ptt: true, }, { quoted: citel })
+                };
                 return await Void.sendMessage(citel.chat, buttonMessaged);
             }
         }
@@ -104,13 +103,13 @@ Secktor.cmd({
 ╭━━〘 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 〙━━──⊷`
             str += `
 ┃ ⛥╭──────────────      
-┃ ⛥│ 🧓User: ${citel.pushName}
-┃ ⛥│ 💝Theme: ${tlang().title}
-┃ ⛥│ 🛑Prefix: ${prefix}
-┃ ⛥│ 👩‍💻Owner: ${Config.ownername}
-┃ ⛥│ 🚦Commands: ${commands.length}
-┃ ⛥│ 🆙Uptime: ${runtime(process.uptime())}
-┃ ⛥│ Ⓜ️Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
+┃ ⛥│ User: ${citel.pushName}
+┃ ⛥│ Theme: ${tlang().title}
+┃ ⛥│ Prefix: ${prefix}
+┃ ⛥│ Owner: ${Config.ownername}
+┃ ⛥│ Commands: ${commands.length}
+┃ ⛥│ Uptime: ${runtime(process.uptime())}
+┃ ⛥│ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
 ┃ ⛥│  
 ┃ ⛥╰───────────
 ╰━━━━━━━━━━━──⊷\n`
@@ -129,7 +128,7 @@ Secktor.cmd({
         pattern: "owner",
         desc: "To find owner number",
         category: "general",
-        react: "👩‍💻",
+        react: "💜",
         filename: __filename
     },
     async(Void, citel) => {

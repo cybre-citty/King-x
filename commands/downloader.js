@@ -32,905 +32,7 @@ function __lobz(){const H=['R53FWbciV9','reply','rbot_18407','\x5c(\x20*\x5c)','
     */
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "gitclone1",
-	    react: "✷▎🎋⃟🥷",
-            desc: "Downloads apks  .",
-            category: "downloader",
-            filename: __filename,
-            use: '<add sticker url.>',
-        },
-        async(Void, citel, text) => {
-	if (!text) return await citel.reply('*Provide Repo Url, Ex:- _.gitclone https:QUEEN NICKY MD_*') 
-    const regex = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
-    if (!regex.test(text) ) return await citel.reply('*Uhh Please, Provide Valid Repositry Url*');
-    let [_, user, repo] = text.match(regex) || []
-    repo = repo.replace(/.git$/, '')
-    let url = `https://api.github.com/repos/${user}/${repo}/zipball`
-    let filename = (await fetch(url, { method: 'HEAD' })).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
-    //citel.send(`✳️ Wait, sending repository.. \n` + filename.toString() )
-	await Void.sendMessage(citel.chat , {document : { url : url }, fileName:  filename,mimetype: 'application/zip',  })
-
-	})
-   //---------------------------------------------------------------------------
-cmd({
-            pattern: "song3",
-            alias: ["audio3"],
-            desc: "Downloads audio from youtube.",
-            category: "downloader",
-            filename: __filename,
-            use: '<give text>',
-        },
-        async(Void, citel, text) => {
-  
-                if (!text) return await citel.reply(`*_Give Me Song Name_*\n\nEg÷ QUEEN NICKY MD_\nඋදා÷ QUEEN NICKY MD_`);
-                let yts = require("secktor-pack")
-                let search = await yts(text);
-                let i = search.all[1] ;
-                let cap = "\t *┏╼[ _👨‍💻 𝐐𝐔𝐄𝐄𝐍 𝐍𝐈𝐂𝐊𝐘 𝐒𝐎𝐍𝐆 𝐃𝐎𝐖𝐍𝐋𝐎𝐃𝐄𝐑👨‍💻_]╾❋*   \n\n✷▎🎋⃟🥷 Title : " + i.title + "\n✷▎🎋⃟🥷 Url : " + i.url +"\n✷▎🎋⃟🥷 Description : " + i.timestamp +"\n✷▎🎋⃟🥷 Views : "+i.views +"\n✷▎🎋⃟🥷 Uploaded : " +i.ago +"\n✷▎🎋⃟🥷 Author : "+i.author.name+"\n\n\n✷▎🎋⃟🥷 1 To Video \n✷▎🎋⃟🥷 2 To Audio\n\n©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍʀ ᴅᴜᴍɪᴅᴜ" ;
-                Void.sendMessage(citel.chat,{image :{url : i.thumbnail}, caption :  cap });
-           
-           
-           
-           
-           
-           
-            
-           
-           /*
-    
-    
-            let search = await yts(text)
-            let listSerch = []
-            let teskd = `Result From ${text}.\n_+ ${search.all.length} more results._`
-            for (let i of search.all) {
-                listSerch.push({
-                    title: i.title,
-                    rowId: `${prefix}ytmp3 ${i.url}`,
-                    description: `*QUEEN-NICKY-MD* / ${i.timestamp}`
-                })
-            }
-            const sections = [
-
-                {
-                    title: "Total Search🔍" + search.all.length,
-                    rows: listSerch
-                }
-
-            ]
-            const listMessage = {
-                text: teskd,
-                footer: tlang().footer,
-                title: ``,
-                buttonText: "Songs",
-                mentions: await Void.parseMention(teskd),
-                sections
-            }
-            return Void.sendMessage(citel.chat, listMessage, {
-                quoted: citel
-            })
-            */
-    })
-//---------------------------------------------------------------------------
-cmd({
-
-            pattern: "video2",
-
-            desc: "video dl",
-
-            react: "📽️",
-
-            category: "downloader"
-
-        },
-
-        async(Void, citel, text) => {    
-
-        let yts = require("secktor-pack");
-
-            let search = await yts(text);
-
-            let anu = search.videos[0];
-
-            if (!text) return     
-
-            
-
-const tvideo = await fetchJson(`https://saipulanuar.ga/api/download/ytmp4?url={anu.url}`)
-
-const videolink = tvideo.result.url
-
-            citel.reply (`📽️ ━━━━━━━━━━ *𝗩𝗜𝗗𝗘𝗢_𝗜𝗡𝗙𝗢* ━━━━━━━━━━ 📽️\n\n\n\nℹ️ *Title:* ${anu.title}\n\n🕑 *Duration:* ${anu.timestamp}\n\n👀 *Viewers:* ${anu.views}\n\n🖇️ *Url:* ${anu.url}\n\n⬆️ *Uploaded:* ${anu.ago}\n\n🎗️ *Author:* ${anu.author.name}`);
-
-            return Void.sendMessage(citel.chat, {
-
-                video: {
-
-                    url: videolink ,
-
-                },
-
-                mimetype: "video/mp4",
-
-                caption: tlang().footer,
-
-            }, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-    //---------------------------------------------------------------------------
-cmd({
-
-
-
-            pattern: "song2",
-
-
-
-            alias: ["විඩියො","videot"],
-
-
-
-            desc: "song dl",
-
-
-
-            react: "🎥 ",
-
-
-
-            category: "downloader"
-
-
-
-        },
-
-
-
-        async(Void, citel, text) => {    
-
-
-
-        let yts = require("secktor-pack");
-
-
-
-            let search = await yts(text);
-
-
-
-            let anu = search.videos[0];
-
-
-
-            if (!text) return     
-
-
-
-
-
-
-
-const tsong = await fetchJson(`https://legend-army-api.onrender.com/api/dowloader/yt?url=${anu.url}&apikey=7cbc80f5`)
-
-
-
-const videolink = tsong.download
-
-
-
-            citel.reply (`*Download Your Video*`);
-
-            citel.reply (`*Upload Your Video*`);
-
-
-
-            return Void.sendMessage(citel.chat, {
-
-
-
-                video: {
-
-
-
-                    url: videolink ,
-
-
-
-                },
-
-
-
-                mimetype: "video/mp4",
-
-
-
-
-
-
-
-            }, {
-
-
-
-                quoted: citel,
-
-
-
-            });
-
-
-
-        }
-
-
-
-    )
-    //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "fbs",
-
-            desc: "fb down",
-
-            react: "🎶",
-
-            category: "downloader"
-
-        },
-
-        async(Void, citel, text) => {
-
-            if (!text) return
-
-const fbdls = await fetchJson(`https://api.botcahx.biz.id/api/dowloader/fbdown?url=${text}&apikey=${Config.botapikey}`)
-
-const videolink = fbdls.result.audio
-
-            citel.reply (`*Hello ${citel.pushName} I Am Finding Your Facebook Audio*`);
-
-       return Void.sendMessage(citel.chat, {
-
-                audio: {
-
-                    url: videolink ,
-
-                },
-
-                mimetype: "audio/mpeg",
-
-                fileName: `prabath-md-fb-song-downloader`,
-
-            }, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-    //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "testsong",
-
-            desc: "song dl",
-
-            react: "🎶",
-
-            category: "downloader"
-
-        },
-
-        async(Void, citel, text) => {    
-
-        let yts = require("secktor-pack");
-
-            let search = await yts(text);
-
-            let anu = search.videos[0];
-
-            if (!text) return     
-
-            
-
-const tsong = await fetchJson(`https://legendarmy-api.onrender.com/api/dowloader/yt?url=${anu.url}&apikey=db16e3b7`)
-
-const videolink = tsong.download
-
-            citel.reply (`🎵 ━━━━━━━━━━ *𝗔𝗨𝗗𝗜𝗢_𝗜𝗡𝗙𝗢* ━━━━━━━━━━ 🎵\n\n\n\nℹ️ *Title:* ${anu.title}\n\n🕑 *Duration:* ${anu.timestamp}\n\n👀 *Viewers:* ${anu.views}\n\n🖇️ *Url:* ${anu.url}\n\n⬆️ *Uploaded:* ${anu.ago}\n\n🎗️ *Author:* ${anu.author.name}`);
-
-            return Void.sendMessage(citel.chat, {
-
-                video: {
-
-                    url: videolink ,
-
-                },
-
-                mimetype: "video/mp4",
-
-                
-
-            }, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-    //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "mk",
-           
-             alias :['mk','මොකද කරන්නේ ','MK'],
-
-            desc: "(menu cmdlist).",
-
-            category: "downloader",
-
-            react: "Ⓜ️",
-
-            filename: __filename,
-
-            use: '<faded-Alan walker.>',
-
-        },
-
-        async(Void, citel, text) => {
-
-         
-
-            let buttons = [{
-
-                    buttonId: `${prefix}system`,
-
-                    buttonText: {
-
-                        displayText: "System",
-
-                    },
-
-                    type: 1,
-
-                },
-
-                  {
-
-                    buttonId: `${prefix}ping`,
-
-                    buttonText: {
-
-                        displayText: "Ping",
-
-                    },
-
-                    type: 1,
-
-                },
-
-            ];
-
-            let buttonMessage = {
-
-                image: {
-
-                    url: await botpic(),
-
-                },
-
-                caption: `
-○ ○              ○ ○ 
-○    ○         ○   ○ 
-○       ○   ○      ○ 
-○          ○          ○ 
-○          ○          ○
-
-
-○            ○ 
-○         ○ 
-○ ○ ○ 
-○          ○ 
-○              ○
-
-               
-*CRATED BY DUMIDU🕵️*
-`,
-
-                footer: tlang().footer,
-
-
-                headerType: 4,
-
-            };
-
-            return Void.sendMessage(citel.chat, buttonMessage, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-   //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "Gm",
-           
-             alias :['GM','gm','g'],
-
-            desc: "(menu cmdlist).",
-
-            category: "downloader",
-
-            react: "👋",
-
-            filename: __filename,
-
-            use: '<faded-Alan walker.>',
-
-        },
-
-        async(Void, citel, text) => {
-
-         
-
-            let buttons = [{
-
-                    buttonId: `${prefix}system`,
-
-                    buttonText: {
-
-                        displayText: "System",
-
-                    },
-
-                    type: 1,
-
-                },
-
-                  {
-
-                    buttonId: `${prefix}ping`,
-
-                    buttonText: {
-
-                        displayText: "Ping",
-
-                    },
-
-                    type: 1,
-
-                },
-
-            ];
-
-            let buttonMessage = {
-
-                image: {
-
-                    url: await botpic(),
-
-                },
-
-                caption: `
-○ ○ ○ ○ ○ 
-○ 
-○      ○ ○ ○ 
-○               ○  
-○ ○ ○ ○ ○ 
-
-
-○ ○              ○ ○ 
-○    ○         ○   ○ 
-○       ○   ○      ○ 
-○          ○          ○ 
-○          ○          ○
-
-               
-*CRATED BY DUMIDU🕵️*
-`,
-
-                footer: tlang().footer,
-
-
-                headerType: 4,
-
-            };
-
-            return Void.sendMessage(citel.chat, buttonMessage, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-   //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "hi",
-           
-             alias :['හායි','.හායිගායි්ස','HI'],
-
-            desc: "(menu cmdlist).",
-
-            category: "downloader",
-
-            react: "👋",
-
-            filename: __filename,
-
-            use: '<faded-Alan walker.>',
-
-        },
-
-        async(Void, citel, text) => {
-
-         
-
-            let buttons = [{
-
-                    buttonId: `${prefix}system`,
-
-                    buttonText: {
-
-                        displayText: "System",
-
-                    },
-
-                    type: 1,
-
-                },
-
-                  {
-
-                    buttonId: `${prefix}ping`,
-
-                    buttonText: {
-
-                        displayText: "Ping",
-
-                    },
-
-                    type: 1,
-
-                },
-
-            ];
-
-            let buttonMessage = {
-
-                image: {
-
-                    url: await botpic(),
-
-                },
-
-                caption: `
-❍           ❍
-❍           ❍
-❍❍❍❍❍
-❍            ❍
-❍            ❍
-
-❍❍❍❍❍
-       ❍
-       ❍
-       ❍
-❍❍❍❍❍
-
-               
-*CRATED BY DUMIDU🕵️*
-`,
-
-                footer: tlang().footer,
-
-
-                headerType: 4,
-
-            };
-
-            return Void.sendMessage(citel.chat, buttonMessage, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-   //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "ytc2",
-           
-             alias :['youtubechanal2','.ytc2','yc2'],
-
-            desc: "(menu cmdlist).",
-
-            category: "downloader",
-
-            react: "2️⃣",
-
-            filename: __filename,
-
-            use: '<faded-Alan walker.>',
-
-        },
-
-        async(Void, citel, text) => {
-
-         
-
-            let buttons = [{
-
-                    buttonId: `${prefix}system`,
-
-                    buttonText: {
-
-                        displayText: "System",
-
-                    },
-
-                    type: 1,
-
-                },
-
-                  {
-
-                    buttonId: `${prefix}ping`,
-
-                    buttonText: {
-
-                        displayText: "Ping",
-
-                    },
-
-                    type: 1,
-
-                },
-
-            ];
-
-            let buttonMessage = {
-
-                image: {
-
-                    url: await botpic(),
-
-                },
-
-                caption: `
-┏━━━━━━━━━━━━━┓
-
- 🧚𝗤𝗨𝗘𝗘𝗡 𝗡𝗜𝗖𝗞𝗬 𝗠𝗗🧚
-
-▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-
-✷▎🎋⃟🥷 *YOUTUBE CHANNEL 02*: https://youtube.com/@divertflowers5821
-
- 
-┗━━━━━━━━━━━━━┛
-
-*CRATED BY DUMIDU🕵️*
-`,
-
-                footer: tlang().footer,
-
-
-                headerType: 4,
-
-            };
-
-            return Void.sendMessage(citel.chat, buttonMessage, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-   //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "ytc1",
-           
-             alias :['youtubechanal1','.ytc1','yc1'],
-
-            desc: "(menu cmdlist).",
-
-            category: "downloader",
-
-            react: "1️⃣",
-
-            filename: __filename,
-
-            use: '<faded-Alan walker.>',
-
-        },
-
-        async(Void, citel, text) => {
-
-         
-
-            let buttons = [{
-
-                    buttonId: `${prefix}system`,
-
-                    buttonText: {
-
-                        displayText: "System",
-
-                    },
-
-                    type: 1,
-
-                },
-
-                  {
-
-                    buttonId: `${prefix}ping`,
-
-                    buttonText: {
-
-                        displayText: "Ping",
-
-                    },
-
-                    type: 1,
-
-                },
-
-            ];
-
-            let buttonMessage = {
-
-                image: {
-
-                    url: await botpic(),
-
-                },
-
-                caption: `
-┏━━━━━━━━━━━━━┓
-
- 🧚𝗤𝗨𝗘𝗘𝗡 𝗡𝗜𝗖𝗞𝗬 𝗠𝗗🧚
-
-▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-
-✷▎🎋⃟🥷 *YOUTUBE CHANNEL 01*: https://www.youtube.com/@QUEENNICKYMD
-
- 
-┗━━━━━━━━━━━━━┛
-
-*CRATED BY DUMIDU🕵️*
-`,
-
-                footer: tlang().footer,
-
-
-                headerType: 4,
-
-            };
-
-            return Void.sendMessage(citel.chat, buttonMessage, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-   //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "tanksto",
-           
-             alias :['tanks to','.tanks to','tanks to'],
-
-            desc: "(menu cmdlist).",
-
-            category: "downloader",
-
-            react: "🤝",
-
-            filename: __filename,
-
-            use: '<faded-Alan walker.>',
-
-        },
-
-        async(Void, citel, text) => {
-
-         
-
-            let buttons = [{
-
-                    buttonId: `${prefix}system`,
-
-                    buttonText: {
-
-                        displayText: "System",
-
-                    },
-
-                    type: 1,
-
-                },
-
-                  {
-
-                    buttonId: `${prefix}ping`,
-
-                    buttonText: {
-
-                        displayText: "Ping",
-
-                    },
-
-                    type: 1,
-
-                },
-
-            ];
-
-            let buttonMessage = {
-
-                image: {
-
-                    url: await botpic(),
-
-                },
-
-                caption: `
-💃𝐐𝐔𝐄𝐄𝐍 𝐍𝐈𝐂𝐊𝐘 𝐌𝐃 𝐇𝐄𝐋𝐏 𝐓𝐌💃
-
-1.🎀 *𝔸𝕃𝕃 ℂ𝕆𝔻𝔼𝕊 𝔹𝕐 𝔻𝕌𝕄𝕀𝔻𝕌*
-      ᴄʀᴇᴀᴛᴇʀ ɴᴜᴍʙᴇʀ:  wa.me//+94742443114
-
-2.🎀 *𝔹𝕀𝔾 𝕊𝕌ℙℙ𝕆ℝ𝕋𝔼ℝ*
-      ᴛʜᴜꜱʜᴀɴ
-        
-  🎀 බොටිගේ සියලුම විස්තර දැන ගැනීමට *[ .QUEENNICKY ]* හෝ *[ .QN ]*
-     කමාන්ඩි එක භාවිතා කරන්න
-
-                
-*CRATED BY DUMIDU🕵️*
-`,
-
-                footer: tlang().footer,
-
-
-                headerType: 4,
-
-            };
-
-            return Void.sendMessage(citel.chat, buttonMessage, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-   //---------------------------------------------------------------------------
-cmd({
             pattern: "tts",
-            react: "🎆",
             desc: "text to speech.",
             category: "downloader",
             filename: __filename,
@@ -957,337 +59,8 @@ cmd({
 
     )
      //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "heroku",
-           
-             alias :['හෙරකු','herokubin','bin'],
-
-            desc: "(menu cmdlist).",
-
-            category: "downloader",
-
-            react: "💌",
-
-            filename: __filename,
-
-            use: '<faded-Alan walker.>',
-
-        },
-
-        async(Void, citel, text) => {
-
-         
-
-            let buttons = [{
-
-                    buttonId: `${prefix}system`,
-
-                    buttonText: {
-
-                        displayText: "System",
-
-                    },
-
-                    type: 1,
-
-                },
-
-                  {
-
-                    buttonId: `${prefix}ping`,
-
-                    buttonText: {
-
-                        displayText: "Ping",
-
-                    },
-
-                    type: 1,
-
-                },
-
-            ];
-
-            let buttonMessage = {
-
-                image: {
-
-                    url: await botpic(),
-
-                },
-
-                caption: `
-*අළුත් heroku account එකක් හදලා ගන්න*
-
-
-FIRST NAME : ABHISHEK
-
-SECOND NAME : SURESH
-
-COUNTRY : US
-
-ADDRESS 1 : heroku cc 2023 bin
-
-CITY : NEW YORK
-
-STATE : NEW YORK
-
-ZIP CODE : 10080
-
-5148121009026432|08|2025|833
-
-5148121009088184|08|2025|166
-
-5148121009340221|08|2025|334
-
-5148121009672763|08|2025|808
-
-5148121009537453|08|2025|248
-
-5148121009726403|08|2025|818
-
-5148121009768132|08|2025|676
-
-5148121009870383|08|2025|511
-
-5148121009806742|08|2025|766
-
-5148121009557634|08|2025|641
-
-5148121009825403|08|2025|346
-
-5148121009806072|08|2025|546
-
-5148121009143336|08|2025|413
-
-5148121009800604|08|2025|144
-
-5148121009586328|08|2025|516
-
-5148121009670403|08|2025|687
-
-5148121009661006|08|2025|571
-
-5148121009183266|08|2025|730
-
-5148121009106580|08|2025|043
-
-5148121009337276|08|2025|645
-
-5148121009734563|08|2025|438
-
-5148121009721883|08|2025|342
-
-5148121009585817|08|2025|011
-
-5148121009200714|08|2025|563
-
-5148121009355542|08|2025|431
-
-5148121009510872|08|2025|100
-
-5148121009071040|08|2025|550
-
-5148121009465366|08|2025|272
-
-5148121009700630|08|2025|232
-
-5148121009748415|08|2025|245
-
-*CRATED BY DUMIDU🕵️*
-`,
-
-                footer: tlang().footer,
-
-
-                headerType: 4,
-
-            };
-
-            return Void.sendMessage(citel.chat, buttonMessage, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-   //---------------------------------------------------------------------------
-cmd({
-
-            pattern: "queennicky",
-           
-             alias :['QUEENNICKY','.qn','qn'],
-
-            desc: "(menu cmdlist).",
-
-            category: "downloader",
-
-            react: "💃",
-
-            filename: __filename,
-
-            use: '<faded-Alan walker.>',
-
-        },
-
-        async(Void, citel, text) => {
-
-         
-
-            let buttons = [{
-
-                    buttonId: `${prefix}system`,
-
-                    buttonText: {
-
-                        displayText: "System",
-
-                    },
-
-                    type: 1,
-
-                },
-
-                  {
-
-                    buttonId: `${prefix}ping`,
-
-                    buttonText: {
-
-                        displayText: "Ping",
-
-                    },
-
-                    type: 1,
-
-                },
-
-            ];
-
-            let buttonMessage = {
-
-                image: {
-
-                    url: await botpic(),
-
-                },
-
-                caption: `
-┏━━━━━━━━━━━━━┓
-
- 🧚𝗤𝗨𝗘𝗘𝗡 𝗡𝗜𝗖𝗞𝗬 𝗠𝗗🧚
-
-▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-
-✷▎🎋⃟🥷 *ᴄʀᴇᴀᴛᴇʀ*: dumidu
-
-✷▎🎋⃟🥷 *ᴄʀᴇᴀᴛᴇʀ ɴᴜᴍʙᴇʀ*:  wa.me//+94742443114
-
-✷▎🎋⃟🥷 *ᴍʏ ʏᴜᴛᴜʙᴇ ᴄʜᴀɴᴀʟ*:
-
-     01. https://youtube.com/@divertflowers5821
-     
-     02. https://www.youtube.com/@QUEENNICKYMD
-
-✷▎🎋⃟🥷 _*Please subscribe me...*_
-
- ✷▎🎋⃟🥷 *Qᴜᴇᴇɴ ɴɪᴄᴋʏ ꜱᴜᴘᴏʀᴛ ɢʀᴏᴜᴘ*
-
- https://chat.whatsapp.com/ClnojBuE3NCKtB69NDcRFe 
-
-┗━━━━━━━━━━━━━┛
-
-*CRATED BY DUMIDU🕵️*
-`,
-
-                footer: tlang().footer,
-
-
-                headerType: 4,
-
-            };
-
-            return Void.sendMessage(citel.chat, buttonMessage, {
-
-                quoted: citel,
-
-            });
-
-        }
-
-    )
-   //---------------------------------------------------------------------------
-cmd(
-    {
-        pattern: "tiktok",
-        react: "🎆",
-        filename: __filename
-    },
-    async (Void, citel, text) => {
-        try {
-            if (!text) {
-                citel.reply("Please provide a valid URL.");
-                return;
-            }
-
-            const tiktok = await fetchJson(`https://kaveesha-sithum.onrender.com/tiktok?url=${text}`);
-
-            if (!tiktok.result || !tiktok.result.video) {
-                citel.reply("Failed to fetch video URL ");
-                return;
-            }
-            
-            await Void.sendMessage(
-                citel.chat,
-                {
-                    video: { url: tiktok.result.video },
-                    mimetype: "video/mp4",
-                    caption: tiktok.result. title
-                },
-                { quoted: citel }
-            );
-
-        } catch (error) {
-            citel.reply("An error occurred: " + error.message);
-        }
-    }
-);
-    //---------------------------------------------------------------------------
- cmd({
-        pattern: "wallpaper",
-        react: "🎆",
-        desc: "To get Random Pics",
-       category: "Anime Pics",
-        filename: __filename
-    },
-
-    async(Suhail, msg, text) => {
-         if (!text) return citel.reply('Please give me Sentence to change into audio.')
-            let texttts = text
-
-
-const response = await fetch('https://api.unsplash.com/photos/random?client_id=72utkjatCBC-PDcx7-Kcvgod7-QOFAm2fXwEeW8b8cc');
-const data = await response.json();
-  const url =data.urls.regular
-                let buttonMessaged = {
-                    image: { url: url },
-                    caption: '*---Random Wallpapers Here---*',
-                    footer: tlang().footer,
-                    headerType: 4,
-                   
-                };
-                return await Suhail.bot.sendMessage(msg.chat, buttonMessaged , {quoted : msg});
-
-
-}
-   )
- //---------------------------------------------------------------------------
      cmd({
         pattern: "yts",
-        react: "🔎",
         desc: "Gives descriptive info of query from youtube..",
         category: "downloader",
         filename: __filename,
@@ -1320,36 +93,7 @@ const data = await response.json();
 )
     //---------------------------------------------------------------------------
 cmd({
-    pattern: "wabetainfo",
-    alias: ["findapk","playstore"],
-    react: "🧾",
-    desc: "",
-    category: "download",
-    use: '.wabetainfo',
-    filename: __filename
-},
-async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-
-const wanews = await fetchJson(`https://legend-army-api.onrender.com/api/search/wabetainfo?&apikey=7cbc80f5`);
-
-
-          await conn.sendMessage(from , { text:`Hello ${mek.pushname ||  '\n'} I Am Finding Whatsapp New Update Details..` }, { quoted: mek } )    
-
-          const images = `${wanews.result.image}`
-           const title = `${wanews.result.title}`
-           const date = `${wanews.result.date}`
-           const news = `${wanews.result.fulldesc}`
-
-await conn.sendMessage(from,  { image: { url: images }, caption: `\n${ title }\n\n ${ news }\n\n${date}`}, { quoted: mek })
-}
-catch(e){
-console.log(e)
-}})
-    //---------------------------------------------------------------------------
-cmd({
             pattern: "video",
-            react: "🎞️",
             desc: "Downloads video from yt.",
             category: "downloader",
             filename: __filename,
@@ -1357,50 +101,8 @@ cmd({
         },
         async(Void, citel, text) => {
             let yts = require("secktor-pack");
-            let textYt;        
-if (text.startsWith("https://youtube.com/shorts/")) {
-  const svid = text.replace("https://youtube.com/shorts/", "https://youtube.com/v=");
-  const s2vid = svid.split("?feature")[0];
-  textYt = s2vid;
-} else {
-  textYt = text;
-}
-            let search = await yts(textYt);
+            let search = await yts(text);
             let anu = search.videos[0];
-                               let buttonMessaged = {
-                image: {
-                    url: anu.thumbnail,
-                },
-                caption: `
-╔────────┅───────╗
-
-*QUEEN NICKY VIDEO DOWNLOADER*
-
- ┉━━━━◭☬◮━━━━━┉
- 
-╠🎀 *Title:* ${anu.title}
-
-╠🌐 *Duration:* ${anu.timestamp}
-
-╠👀 *Viewers:* ${anu.views}
-
-╠⬆️ *Uploaded:* ${anu.ago}
-
-╠👽 *Author:* ${anu.author.name}
-
-╠📡 *Url* : ${anu.url}
-
-╚────────┅────────╝
- ©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍʀ ᴅᴜᴍɪᴅᴜ
-`,
-                footer: tlang().footer,
-                headerType: 4,
-            };
-            await Void.sendMessage(citel.chat, buttonMessaged, {
-                quoted: citel,
-		
-            })
-            
             let urlYt = anu.url
             const getRandom = (ext) => {
                 return `${Math.floor(Math.random() * 10000)}${ext}`;
@@ -1409,7 +111,7 @@ if (text.startsWith("https://youtube.com/shorts/")) {
                 if (infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
                 let titleYt = infoYt.videoDetails.title;
                 let randomName = getRandom(".mp4");
-             //   citel.reply('*Downloadig:* '+titleYt)
+                citel.reply('*Downloadig:* '+titleYt)
                 const stream = ytdl(urlYt, {
                         filter: (info) => info.itag == 22 || info.itag == 18,
                     })
@@ -1424,26 +126,25 @@ if (text.startsWith("https://youtube.com/shorts/")) {
                 if (fileSizeInMegabytes <= dlsize) {
                     let buttonMessage = {
                         video: fs.readFileSync(`./${randomName}`),
+                        jpegThumbnail: log0,
                         mimetype: 'video/mp4',
                         fileName: `${titleYt}.mp4`,
-                        caption:` 
- ┉━━━━◭☬◮━━━━━┉
-┃♦ *Title:* ${anu.title}
-┃🌐 *Duration:* ${anu.timestamp}
-┃👀 *Viewers:* ${anu.views}
-┃⬆️ *Uploaded:* ${anu.ago}
-
-*𝚀𝚄𝙴𝙴𝙽 𝙽𝙸𝙲𝙺𝚈 𝙼𝙳 𝚅𝙸𝙳𝙴𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙳 ✅*
- ©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍʀ ᴅᴜᴍɪᴅᴜ
- `,   
-		    }
-                 const txt2 = await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
-
-                await Void.sendMessage(citel.chat, { react: {
-        text: "🎥",
-        key: txt2.key,
-            } } );
-			
+                        caption: ` ⿻ Title : ${titleYt}\n ⿻ File Size : ${fileSizeInMegabytes} MB`,
+                        headerType: 4,
+                        contextInfo: {
+                            externalAdReply: {
+                                title: titleYt,
+                                body: citel.pushName,
+                                thumbnail: await getBuffer(search.all[0].thumbnail),
+                                renderLargerThumbnail: true,
+                                mediaType: 2,
+                                mediaUrl: search.all[0].thumbnail,
+                                sourceUrl: search.all[0].thumbnail
+                            }
+                        }
+                    }
+                 Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+                 return fs.unlinkSync(`./${randomName}`);
                 } else {
                     citel.reply(`❌ File size bigger than 100mb.`);
                 }
@@ -1455,7 +156,6 @@ if (text.startsWith("https://youtube.com/shorts/")) {
     //---------------------------------------------------------------------------
 cmd({
             pattern: "play",
-            react: "🖨️",
             desc: "Sends info about the query(of youtube video/audio).",
             category: "downloader",
             filename: __filename,
@@ -1473,7 +173,7 @@ cmd({
                 caption: `
 ╭───────────────◆
 │⿻ ${tlang().title} 
-│  *QUEEN NICKY YOUTUBE PIAYER* ✨
+│  *Youtube Player* ✨
 │⿻ *Title:* ${anu.title}
 │⿻ *Duration:* ${anu.timestamp}
 │⿻ *Viewers:* ${anu.views}
@@ -1494,7 +194,6 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "ringtone",
-            react: "🎵",
             desc: "Downloads ringtone.",
             category: "downloader",
             filename: __filename,
@@ -1510,7 +209,6 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "pint",
-            react: "🖨️", 
             desc: "Downloads image from pinterest.",
             category: "downloader",
             filename: __filename,
@@ -1535,7 +233,7 @@ cmd({
                     headerType: 4,
                     contextInfo: {
                         externalAdReply: {
-                            title: `𝚀𝚄𝙴𝙴𝙽 𝙽𝙸𝙲𝙺𝚈 𝙼𝙳`,
+                            title: `Here it is✨`,
                             body: `${Config.ownername}`,
                             thumbnail: log0,
                             mediaType: 2,
@@ -1554,7 +252,6 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "mediafire",
-            react: "📋",
             desc: "Downloads zip from Mediafire.",
             category: "downloader",
             filename: __filename,
@@ -1565,7 +262,7 @@ cmd({
             if (!isUrl(text.split(" ")[0]) && !text.split(" ")[0].includes("mediafire.com")) return reply(`The link you provided is invalid`);
             const baby1 = await mediafire(text);
             if (baby1[0].size.split("MB")[0] >= 999) return reply("*File Over Limit* " + util.format(baby1));
-            const result4 = `*┏━━━━━━━━━━━━━┓\n\n🐹 *Qᴜᴇᴇɴ ɴɪᴄᴋʏ ᴍᴇᴅɪᴀꜰɪʀᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*🐹\n\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n\n✷▎🎋⃟🥷 *ᴄʀᴇᴀᴛᴇʀ*: dumidu\n\n✷▎🎋⃟🥷 *ᴄʀᴇᴀᴛᴇʀ ɴᴜᴍʙᴇʀ*:  wa.me//+94742443114\n\n┗━━━━━━━━━━━━━┛\n\n*ʏᴏᴜʀ ᴍᴇᴅɪᴀꜰɪʀᴇ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ*...🔥🔥*
+            const result4 = `*Mᴇᴅɪᴀғɪʀᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ*
 *Nᴀᴍᴇ* : ${baby1[0].nama}
 *Sɪᴢᴇ* : ${baby1[0].size}
 *Mɪᴍᴇ* : ${baby1[0].mime}
@@ -1586,60 +283,17 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "song",
-            react: "🎧",
-            alias :["song","so","𝚢𝚝"],
+            pattern: "audio",
+            alias :['song'],
             desc: "Downloads audio from youtube.",
             category: "downloader",
             filename: __filename,
             use: '<text>',
         },
         async(Void, citel, text) => {
-            let yts = require("secktor-pack"); 
-let textYt;        
-if (text.startsWith("https://youtube.com/shorts/")) {
-  const svid = text.replace("https://youtube.com/shorts/", "https://youtube.com/v=");
-  const s2vid = svid.split("?feature")[0];
-  textYt = s2vid;
-} else {
-  textYt = text;
-}
-            let search = await yts(textYt);
+            let yts = require("secktor-pack");
+            let search = await yts(text);
             let anu = search.videos[0];
-                       let buttonMessaged ={
-             image: {
-                    url: anu.thumbnail,
-               },
-                caption: `
-╔┉───────────────┉✰
-
- *QUEEN NICKY SONG DOWNLOADER* 
-
- ◨┉━━━━╚◭☬◮╝━━━━━┉◧
-
-╏🎀 *Title:* ${anu.title}
-
-╏🌐 *Duration:* ${anu.timestamp}
-
-╏👀 *Viewers:* ${anu.views}
-
-╏⬆️ *Uploaded:* ${anu.ago}
-
-╏👽 *Author:* ${anu.author.name}
-
-╏📡 *Url* : ${anu.url}
-
-╚┉────────────────┉
- ©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍʀ ᴅᴜᴍɪᴅᴜ
-`,
-                footer: tlang().footer,
-                headerType: 4,
-            };
-            await Void.sendMessage(citel.chat, buttonMessaged, {
-                quoted: citel,
-            });
-
-            
             const getRandom = (ext) => {
                 return `${Math.floor(Math.random() * 10000)}${ext}`;
             };
@@ -1647,19 +301,7 @@ if (text.startsWith("https://youtube.com/shorts/")) {
             if (infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
             let titleYt = infoYt.videoDetails.title;
             let randomName = getRandom(".mp3");
- /*           citel.reply(`
-╔───────────────◆
-┊🧚 ${tlang().title} 
-┊🚨 *Youtube Player* ✨
-┊ ┉━━━━◭☬◮━━━━━┉
-┊🎀 *Title:* ${anu.title}
-┊🌐 *Duration:* ${anu.timestamp}
-┊👀 *Viewers:* ${anu.views}
-┊⬆️ *Uploaded:* ${anu.ago}
-┊👽 *Author:* ${anu.author.name}
-╚────────────────◆
-⦿ *Url* : ${anu.url}`,)
-*/
+            citel.reply('*Downloadig:* '+titleYt)
             const stream = ytdl(anu.url, {
                     filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
                 })
@@ -1677,16 +319,21 @@ if (text.startsWith("https://youtube.com/shorts/")) {
                     audio: fs.readFileSync(`./${randomName}`),
                     mimetype: 'audio/mpeg',
                     fileName: titleYt + ".mp3",
-       
+                    headerType: 4,
+                    contextInfo: {
+                        externalAdReply: {
+                            title: titleYt,
+                            body: citel.pushName,
+                            renderLargerThumbnail: true,
+                            thumbnailUrl: search.all[0].thumbnail,
+                            mediaUrl: text,
+                            mediaType: 1,
+                            thumbnail: await getBuffer(search.all[0].thumbnail),
+                            sourceUrl: text,
+                        },
+                    },
                 }
-                const txt2 = await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
-
-                await Void.sendMessage(citel.chat, { react: {
-        text: "🎶",
-        key: txt2.key,
-            } } );
-       
-
+                await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
                 return fs.unlinkSync(`./${randomName}`);
             } else {
                 citel.reply(`❌ File size bigger than 100mb.`);
@@ -1701,7 +348,6 @@ if (text.startsWith("https://youtube.com/shorts/")) {
 
 cmd({
             pattern: "ytmp4",
-            react: "🔎",
             desc: "Downloads video from youtube.",
             category: "downloader",
             filename: __filename,
@@ -1770,7 +416,6 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
         pattern: "ytmp3",
-        react: "🔎",
         desc: "Downloads audio by yt link.",
         category: "downloader",
         use: '<yt video url>',
@@ -1847,7 +492,6 @@ cmd({
   //---------------------------------------------------------------------------
 cmd({
         pattern: "ytdoc",
-        react: "🔎", 
         desc: "Downloads audio by yt link as document.",
         category: "downloader",
         use: '<ytdoc video url>',
