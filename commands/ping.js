@@ -13,6 +13,7 @@
 const Secktor = require('../lib')
 Secktor.cmd({
         pattern: "ping",
+        react: "🔥",
         desc: "To check ping",
         category: "general",
         filename: __filename,
@@ -22,6 +23,6 @@ Secktor.cmd({
         const { key } = await Void.sendMessage(citel.chat, {text: '```Ping!!!```'});
         var final = new Date().getTime();
        // await Secktor.sleep(1000)
-       return await Void.sendMessage(citel.chat, {text: '*Pong*\n *' + (final - inital) + ' ms* ', edit: key});
+       return await Void.sendMessage(citel.chat, {text: 'ඔච්චර තමයි','*🎗️Pong🎗️*\n *' + (final - inital) + ' ms* ', edit: key});
     }
 );
