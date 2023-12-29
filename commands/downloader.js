@@ -510,7 +510,18 @@ cmd({
                         jpegThumbnail: log0,
                         mimetype: 'video/mp4',
                         fileName: `${titleYt}.mp4`,
-                        caption: ` ❤️ *Title* : ${titleYt}\n 🗂️ *File Size* : ${fileSizeInMegabytes} MB\n🙈 *Viewers:* ${anu.views}\n⏳ *Duration:* ${anu.timestamp}`,
+                        caption: `
+			╭───────────────╮
+                        │👻 ${tlang().title} 
+                        │  *Youtube Player* ✨
+                        │🩷 *Title:* ${anu.title}
+                        │💌 *Duration:* ${anu.timestamp}
+                        │🙈*Viewers:* ${anu.views}
+                        │⏳ *Uploaded:* ${anu.ago}
+                        │❤️‍🔥 *Author:* ${anu.author.name}
+                        ╰────────────────╯
+                       🖇️ *Url* : ${anu.url}
+                       `,
                         headerType: 4,
                         contextInfo: {
                             externalAdReply: {
