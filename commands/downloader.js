@@ -464,12 +464,10 @@ if (text.startsWith("https://youtube.com/shorts/")) {
 
         }
     )
-    //---------------------------------------------------------------------------
-
+     //---------------------------------------------------------------------------
 cmd({
             pattern: "ytmp4",
-	     react: "📺",
-	    alias :['yt4','යුටියුබ්4','வலைஒளி4'],
+            react: "🔎",
             desc: "Downloads video from youtube.",
             category: "downloader",
             filename: __filename,
@@ -510,18 +508,7 @@ cmd({
                         jpegThumbnail: log0,
                         mimetype: 'video/mp4',
                         fileName: `${titleYt}.mp4`,
-                        caption: `
-			╭───────────────╮
-                        │👻 ${tlang().title} 
-                        │  *Youtube Player* ✨
-                        │🩷 *Title:* ${anu.title}
-                        │💌 *Duration:* ${anu.timestamp}
-                        │🙈*Viewers:* ${anu.views}
-                        │⏳ *Uploaded:* ${anu.ago}
-                        │❤️‍🔥 *Author:* ${anu.author.name}
-                        ╰────────────────╯
-                       🖇️ *Url* : ${anu.url}
-                       `,
+                        caption: ` ⿻ Title : ${titleYt}\n ⿻ File Size : ${fileSizeInMegabytes} MB`,
                         headerType: 4,
                         contextInfo: {
                             externalAdReply: {
@@ -549,6 +536,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
         pattern: "ytmp3",
+	react: "🔎",
         desc: "Downloads audio by yt link.",
         category: "downloader",
         use: '<yt video url>',
@@ -625,6 +613,7 @@ cmd({
   //---------------------------------------------------------------------------
 cmd({
         pattern: "ytdoc",
+	react: "🔎",
         desc: "Downloads audio by yt link as document.",
         category: "downloader",
         use: '<ytdoc video url>',
