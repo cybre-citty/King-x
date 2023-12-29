@@ -146,7 +146,7 @@ if (text.startsWith("https://youtube.com/shorts/")) {
                 caption: `
 ╭──────────────────╮
 
-*🫅KING-X VIDEO DOWNLOADER🫅*
+*🫅KINGX VIEDO DOWNLOADER🫅*
 
 ╰──────────────────╯
  
@@ -162,7 +162,7 @@ if (text.startsWith("https://youtube.com/shorts/")) {
 │
 │📡 *Url* : ${anu.url}
 │
-╰───────────────────╯
+╰──────────────────╯
 *𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃*
  ᴄʀᴇᴀᴛᴇᴅ ʙʏ ${Config.ownername}
 `,
@@ -200,7 +200,7 @@ if (text.startsWith("https://youtube.com/shorts/")) {
                         mimetype: 'video/mp4',
                         fileName: `${titleYt}.mp4`,
                         caption:` 
-╭──────────────────
+╭─────────────────╮
 │ ❤ *Title:* ${anu.title}
 │
 │ ⏳ *Duration:* ${anu.timestamp}
@@ -208,7 +208,7 @@ if (text.startsWith("https://youtube.com/shorts/")) {
 │ 🙈 *Viewers:* ${anu.views}
 │
 │ 📑 *Uploaded:* ${anu.ago}
-╰────────────────────
+╰──────────────────╯
 *𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙳 ❤*
  ᴄʀᴇᴀᴛᴇᴅ ʙʏ ${Config.ownername}
  `,   
@@ -216,7 +216,7 @@ if (text.startsWith("https://youtube.com/shorts/")) {
                  const txt2 = await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
 
                 await Void.sendMessage(citel.chat, { react: {
-        text: "✔️",
+        text: "✅",
         key: txt2.key,
             } } );
 			
@@ -231,6 +231,8 @@ if (text.startsWith("https://youtube.com/shorts/")) {
     //---------------------------------------------------------------------------
 cmd({
             pattern: "play",
+	    react: "📻",
+	     alias :['py','වාදනය','விளையாடு'],
             desc: "Sends info about the query(of youtube video/audio).",
             category: "downloader",
             filename: __filename,
@@ -246,16 +248,16 @@ cmd({
                     url: anu.thumbnail,
                 },
                 caption: `
-╭───────────────◆
-│⿻ ${tlang().title} 
+╭───────────────╮
+│👻 ${tlang().title} 
 │  *Youtube Player* ✨
-│⿻ *Title:* ${anu.title}
-│⿻ *Duration:* ${anu.timestamp}
-│⿻ *Viewers:* ${anu.views}
-│⿻ *Uploaded:* ${anu.ago}
-│⿻ *Author:* ${anu.author.name}
-╰────────────────◆
-⦿ *Url* : ${anu.url}
+│🩷 *Title:* ${anu.title}
+│💌 *Duration:* ${anu.timestamp}
+│🙈*Viewers:* ${anu.views}
+│⏳ *Uploaded:* ${anu.ago}
+│❤️‍🔥 *Author:* ${anu.author.name}
+╰────────────────╯
+🖇️ *Url* : ${anu.url}
 `,
                 footer: tlang().footer,
                 headerType: 4,
