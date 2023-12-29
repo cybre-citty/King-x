@@ -318,6 +318,8 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "mediafire",
+	   react: "🗳️",
+	   alias :['mf','ෆිඉල්','ஊடகத்தடுப்பு'],
             desc: "Downloads zip from Mediafire.",
             category: "downloader",
             filename: __filename,
@@ -349,17 +351,61 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "audio",
-            alias :['song'],
+            pattern: "song",
+            react: "🎧",
+            alias :["son","සිංදු","பாடல்"],
             desc: "Downloads audio from youtube.",
             category: "downloader",
             filename: __filename,
             use: '<text>',
         },
         async(Void, citel, text) => {
-            let yts = require("secktor-pack");
-            let search = await yts(text);
+            let yts = require("secktor-pack"); 
+let textYt;        
+if (text.startsWith("https://youtube.com/shorts/")) {
+  const svid = text.replace("https://youtube.com/shorts/", "https://youtube.com/v=");
+  const s2vid = svid.split("?feature")[0];
+  textYt = s2vid;
+} else {
+  textYt = text;
+}
+            let search = await yts(textYt);
             let anu = search.videos[0];
+                       let buttonMessaged ={
+             image: {
+                    url: anu.thumbnail,
+               },
+                caption: `
+╭──────────────────╮
+
+*🫅KINGX SONG DOWNLOADER🫅*
+
+╰──────────────────╯
+ 
+│❤️ *Title:* ${anu.title}
+│
+│⏳ *Duration:* ${anu.timestamp}
+│
+│🙈 *Viewers:* ${anu.views}
+│
+│⚜️ *Uploaded:* ${anu.ago}
+│
+│👑 *Author:* ${anu.author.name}
+│
+│📡 *Url* : ${anu.url}
+│
+╰──────────────────╯
+*𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃*
+ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ${Config.ownername}
+`,
+                footer: tlang().footer,
+                headerType: 4,
+            };
+            await Void.sendMessage(citel.chat, buttonMessaged, {
+                quoted: citel,
+            });
+
+            
             const getRandom = (ext) => {
                 return `${Math.floor(Math.random() * 10000)}${ext}`;
             };
@@ -367,7 +413,20 @@ cmd({
             if (infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
             let titleYt = infoYt.videoDetails.title;
             let randomName = getRandom(".mp3");
-            citel.reply('*Downloadig:* '+titleYt)
+ /*           citel.reply(`
+╭─────────────────╮
+│ ❤ *Title:* ${anu.title}
+│
+│ ⏳ *Duration:* ${anu.timestamp}
+│
+│ 🙈 *Viewers:* ${anu.views}
+│
+│ 📑 *Uploaded:* ${anu.ago}
+╰──────────────────╯
+*𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 𝙳𝙾𝚆𝙽𝙻𝙾𝙳 ❤*
+ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ${Config.ownername}
+⦿ *Url* : ${anu.url}`,)
+*/
             const stream = ytdl(anu.url, {
                     filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
                 })
@@ -385,21 +444,16 @@ cmd({
                     audio: fs.readFileSync(`./${randomName}`),
                     mimetype: 'audio/mpeg',
                     fileName: titleYt + ".mp3",
-                    headerType: 4,
-                    contextInfo: {
-                        externalAdReply: {
-                            title: titleYt,
-                            body: citel.pushName,
-                            renderLargerThumbnail: true,
-                            thumbnailUrl: search.all[0].thumbnail,
-                            mediaUrl: text,
-                            mediaType: 1,
-                            thumbnail: await getBuffer(search.all[0].thumbnail),
-                            sourceUrl: text,
-                        },
-                    },
+       
                 }
-                await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+                const txt2 = await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+
+                await Void.sendMessage(citel.chat, { react: {
+        text: "🎶",
+        key: txt2.key,
+            } } );
+       
+
                 return fs.unlinkSync(`./${randomName}`);
             } else {
                 citel.reply(`❌ File size bigger than 100mb.`);
