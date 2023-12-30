@@ -28,6 +28,27 @@ cmd({
 
     }
 )
+    //---------------------------------------------------------  
+      cmd({  
+      pattern: "gtp",  
+      alias: ["01","cgt"],  
+      react: "👥",  
+      desc: "esana",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const response = await fetchJson(`https://queen-api.onrender.com/api/chatgpt/gpt-1?message=${citel.text}`);  
+  
+  const result = `${response.result}`  
+  
+  await citel.reply(result)
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
 
 //---------------------------------------------------------------------------
 cmd({
