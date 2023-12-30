@@ -29,39 +29,7 @@ cmd({
     }
 )
     //---------------------------------------------------------  
-      cmd({
-
-            pattern: 'mod01',
- 
-            alias :['m1'],
-
-            desc: 'Sends ehi',
-
-            category: "ehi downloader",
-
-            react: "1️⃣",
-
-            filename: __filename,
-
-            use:'<does this>',
-
-        },
-          async(Void,citel,text) => {
-              return Void.sendMessage(citel.chat,{  
-      document: {  
-       
-       url: 'https://media4.appsfire.co/file/wa4-abo3rab-apk/',
-       },
-       fileName: 'gold💛',  
-      mimetype: "application/octet-stream",
-      },
-          let stickers = fs.readFileSync('./path/fuck.webp')
-
-Queen.sendMessage(message.id, { sticker: stickers }, { quoted: message })                            
-         {
-             quoted: citel,  
-  })
-    });
+    
 //---------------------------------------------------------------------------
 cmd({
         pattern: "remove",
