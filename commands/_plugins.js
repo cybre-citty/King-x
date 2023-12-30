@@ -40,7 +40,7 @@ cmd({
   },  
   async(Void, citel) => {  
   try{  
-  const response = await fetchJson(`https://queen-api.onrender.com/api/chatgpt/gpt-1?message=${citel.text}`);  
+  const response = await fetchJson(`https://chatgpt-api.nbdev.repl.co?text=hello${citel.text}`);  
   
   const result = `${response.result}`  
   
