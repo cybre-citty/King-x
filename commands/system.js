@@ -162,43 +162,45 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "alive",
-           react: "💝",
             category: "general",
             filename: __filename,
             desc: "is bot alive??"
         },
         async(Void, citel, text, isAdmins) => {
-            let alivemessage = Config.ALIVE_MESSAGE || `*A bot developed by SamPandey001.*`
+Void.sendMessage(citel.chat, { 
+              react: { 
+                  text: "❤️", 
+                  key: citel.key 
+              } 
+          }) 
+          await Void.sendPresenceUpdate('recording', citel.chat);
+            let alivemessage = Config.ALIVE_MESSAGE || `*🧑‍💻 Bot created by theekshana*`
             const alivtxt = `
-  🛡️ 𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🛡️
 
- ◪*Hello, ${citel.pushName},* 
+*👋Hello, ${citel.pushName},*
+${alivemessage}
+┏━━━━━━━━━━━━⛵
+┃  🧑‍💻Version: 0.0.1
+┃  🆙Uptime: ${runtime(process.uptime())}
+┃ 👤Owner:  ${Config.ownername}
+┗━━━━━━━━━━━━⛷  
 
- ◩ A Whatsapp md bot built 
-  in NodeJs to make
-  experience better.....
- 
- ◩ king-x created by
-  Theekshana
- 
- ⛲Time:- ${time}
+ *⚚ join king-x whatsapp bot group ⚚*
+                                 
+https://chat.whatsapp.com/EAVBuRArd3XB86fZ8dIY2N
 
- ⛲Date:- ${date}
-
- ⛲𝚄𝚙𝚝𝚒𝚖𝚎:- ${runtime(process.uptime())}
-
-`;
+🤭Powered by ${Config.ownername}`;
             let aliveMessage = {
                 image: {
-                    url: await botpic(),
-                },
+                 url:  await botpic(),
+                       },
                 caption: alivtxt,
                 footer: tlang().footer,
                 headerType: 4,
             };
              return Void.sendMessage(citel.chat, aliveMessage, {
                 quoted: citel,
-            });
+            });     
 
         }
     )
