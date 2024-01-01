@@ -19,13 +19,13 @@ cmd({
     alias :['gpt'],
     desc: "chat with an AI(GPT)",
     category: "AI",
-    use: '<Hii,Secktor>',
+    use: '<Hii,king>',
     filename: __filename,
 },
 async(Void, citel,text) => {
     let zx = text.length;
     if (zx < 8) {
-        let {data} = await axios.get(`https://chatgpt-api.nbdev.repl.co?text=[${citel.sender.split("@")[0]}]&msg=[${text}]`);
+        let {data} = await axios.get(`https://api.brainshop.ai/get?bid=167991&key=aozpOoNOy3dfLgmB&uid=[${citel.sender.split("@")[0]}]&msg=[${text}]`);
         return citel.reply(data.cnt);  
     }
     if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`);
