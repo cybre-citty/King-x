@@ -189,12 +189,12 @@ ${alivemessage}
  
  ◩ king-x created by
   Theekshana
- 
- ⛲Time:- ${time}
+  
+⛲ Version: 0.0.1
 
- ⛲Date:- ${date}
+⛲ Uptime: ${runtime(process.uptime())}
 
- ⛲𝚄𝚙𝚝𝚒𝚖𝚎:- ${runtime(process.uptime())}
+⛲ Owner:  ${Config.ownername}
 
 
 🤭Powered by ${Config.ownername}`;
