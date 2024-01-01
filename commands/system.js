@@ -177,19 +177,22 @@ Void.sendMessage(citel.chat, {
             let alivemessage = Config.ALIVE_MESSAGE || `*🧑‍💻 Bot created by theekshana*`
             const alivtxt = `
 
-*👋Hello, ${citel.pushName},*
-${alivemessage}
-┏━━━━━━━━━━━━⛵
-┃  🧑‍💻Version: 0.0.1
-┃  🆙Uptime: ${runtime(process.uptime())}
-┃ 👤Owner:  ${Config.ownername}
-┗━━━━━━━━━━━━⛷  
+  🛡️ 𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🛡️
 
- *⚚ join king-x whatsapp bot group ⚚*
-                                 
-https://chat.whatsapp.com/EAVBuRArd3XB86fZ8dIY2N
+ ◪*Hello, ${citel.pushName},* 
 
-🤭Powered by ${Config.ownername}`;
+ ◩ A Whatsapp md bot built 
+  in NodeJs to make
+  experience better.....
+ 
+ ◩ king-x created by
+  Theekshana
+ 
+ ⛲Time:- ${time}
+
+ ⛲Date:- ${date}
+
+ ⛲𝚄𝚙𝚝𝚒𝚖𝚎:- ${runtime(process.uptime())}`;
             let aliveMessage = {
                 image: {
                  url:  await botpic(),
