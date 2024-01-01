@@ -19,7 +19,8 @@ const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter")
     cmd({
         pattern: "photo",
         desc: "Makes photo of replied sticker.",
-        category: "converter",
+        category: "creater",
+         react: "📸",
         use: '<reply to any gif>',
         filename: __filename
     },
@@ -50,10 +51,10 @@ if (mime =="imageMessage" || mime =="stickerMessage")
 //---------------------------------------------------------------------------
 
 cmd({
-         pattern: "vv",
-         alias : ['viewonce','retrive'],
+         pattern: "retrive",
+         alias : ['viewonce','vv'],
          desc: "Flips given text.",
-         category: "misc",
+         category: "creater",
          use: '<query>',
          filename: __filename
      },
@@ -107,7 +108,7 @@ cmd({
             pattern: "quotely",
             desc: "Makes Sticker of quoted text.",
             alias: ["q"],
-            category: "converter",
+            category: "creater",
             use: '<reply to any message.>',
             filename: __filename
         },
@@ -160,17 +161,17 @@ cmd({
 cmd({
             pattern: "fancy",
             desc: "Makes stylish/fancy given text",
-            category: "converter",
-            use: '56 Secktor',
+            category: "creater",
+            use: '56 King-x',
             react: "✅",
             filename: __filename
         },
         async(Void, citel, text) => {
             if (isNaN(text.split(" ")[0]) || !text) {
                 let text = tiny(
-                    "Fancy text generator\n\nExample: .fancy 32 Secktor\n\n"
+                    "Fancy text generator\n\nExample: .fancy 32 King-x\n\n"
                 );
-                listall("Secktor Bot").forEach((txt, num) => {
+                listall("KING-X").forEach((txt, num) => {
                     text += `${(num += 1)} ${txt}\n`;
                 });
                 return await citel.reply(text);
@@ -181,11 +182,12 @@ cmd({
 
         }
     )
+
     //---------------------------------------------------------------------------
 cmd({
             pattern: "tiny",
             desc: "Makes url tiny.",
-            category: "converter",
+            category: "creater",
             use: '<url>',
             react: "✅",
             filename: __filename
@@ -206,7 +208,7 @@ cmd({
         pattern: "circle",
         alias: ["circlestic","circlesticker","cs"],
         desc: "Makes sticker of replied image/video.",
-        category: "sticker",
+        category: "creater",
 filename: __filename,
         use: '<reply to any image/video.>'
     },
@@ -238,7 +240,7 @@ cmd({
         pattern: "crop",
         alias: ["cropstic","csticker","cropsticker"],
         desc: "Makes sticker of replied image/video.",
-        category: "sticker",
+        category: "creater",
 filename: __filename,
         use: '<reply to any image/video.>'
     },
@@ -270,7 +272,7 @@ cmd({
         pattern: "round",
         alias: ["roundstic","roundsticker"],
         desc: "Makes sticker of replied image/video.",
-        category: "sticker",
+        category: "creater",
 filename: __filename,
         use: '<reply to any image/video.>'
     },
@@ -301,7 +303,7 @@ cmd({
     pattern: "toaudio",
     alias:['mp3','tomp3'],
     desc: "changes type to audio.",
-    category: "converter",
+    category: "creater",
     use: '<reply to any Video>',
     filename: __filename
 },
