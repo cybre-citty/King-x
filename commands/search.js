@@ -52,7 +52,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "weather",
-            alias :['කලගුනය'],
+            alias :['කලගුනය','wt'],
             category: "search",
             react: "⛅",
             desc: "Sends weather info about asked place.",
