@@ -170,23 +170,23 @@ cmd({
         async(Void, citel, text, isAdmins) => {
             let alivemessage = Config.ALIVE_MESSAGE || `*A bot developed by SamPandey001.*`
             const alivtxt = `
-╭──❨🛡️ 𝙺𝙸𝙽𝙶-𝚇 𝙱𝙾𝚃 🛡️❩──╮
-│
-│ ◪*Hello, ${citel.pushName},* 
-│ 
-│ ◩ A Whatsapp md bot built 
-│ in NodeJs to make
-│ experience better.....
-│ 
-│ ◩ king-x created by
-│ Theekshana
-│ 
-│ ⛲Time:- ${time}
-│ 
-│ ⛲Date:- ${date}
-│ 
-│ ⛲𝚄𝚙𝚝𝚒𝚖𝚎:- ${runtime(process.uptime())}
-╰──────────────────╯
+  🛡️ 𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🛡️
+
+ ◪*Hello, ${citel.pushName},* 
+
+ ◩ A Whatsapp md bot built 
+  in NodeJs to make
+  experience better.....
+ 
+ ◩ king-x created by
+  Theekshana
+ 
+ ⛲Time:- ${time}
+
+ ⛲Date:- ${date}
+
+ ⛲𝚄𝚙𝚝𝚒𝚖𝚎:- ${runtime(process.uptime())}
+
 `;
             let aliveMessage = {
                 image: {
