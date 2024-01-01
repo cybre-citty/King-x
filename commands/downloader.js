@@ -56,7 +56,7 @@ cmd({
 cmd(
     {
         pattern: "tiktok",
-        react: "😘",
+        react: "🚀",
         filename: __filename
     },
     async (Void, citel, text) => {
