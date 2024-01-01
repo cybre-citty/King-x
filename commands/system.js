@@ -15,6 +15,7 @@ const util = require('util')
 //---------------------------------------------------------------------------
 cmd({
             pattern: "addnote",
+            react: "➕",
             category: "owner",
             desc: "Adds a note on db.",
             filename: __filename
@@ -32,6 +33,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "unban",
+           react: "🔊",
             category: "misc",
             filename: __filename,
             desc: "Unbans banned user (from using bot)."
@@ -63,6 +65,7 @@ cmd({
     //---------------------------------------------------------------------------
     cmd({
         pattern: "url",
+         react: "🖇️",
         alias : ['createurl'],
         category: "misc",
         filename: __filename,
@@ -82,6 +85,7 @@ cmd({
 //---------------------------------------------------------------------------
 cmd({
     pattern: "trt",
+ react: "🗯️",
     alias :['translate'],
     category: "misc",
     filename: __filename,
@@ -101,6 +105,7 @@ async(Void, citel, text) => {
     //---------------------------------------------------------------------------
 cmd({
             pattern: "delnote",
+           react: "🗑️",
             category: "owner",
             filename: __filename,
             desc: "Deletes note from db."
@@ -116,6 +121,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "delallnotes",
+           react: "📝",
             category: "owner",
             filename: __filename,
             desc: "Deletes all notes from db."
@@ -131,6 +137,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "ban",
+        react: "🔇",
             category: "owner",
             filename: __filename,
             desc: "Bans user from using bot."
@@ -212,6 +219,7 @@ ${alivemessage}
     //---------------------------------------------------------------------------
 cmd({
         pattern: "allnotes",
+       react: "🗞️",
         category: "owner",
         filename: __filename,
         desc: "Shows list of all notes."
