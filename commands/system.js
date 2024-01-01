@@ -194,10 +194,7 @@ ${alivemessage}
 
 ⛲ Uptime: ${runtime(process.uptime())}
 
-⛲ Owner:  ${Config.ownername}
-
-
-🤭Powered by ${Config.ownername}`;
+⛲ Owner:  ${Config.ownername}`;
             let aliveMessage = {
                 image: {
                  url:  await botpic(),
