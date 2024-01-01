@@ -169,7 +169,7 @@ cmd({
         async(Void, citel, text, isAdmins) => {
 Void.sendMessage(citel.chat, { 
               react: { 
-                  text: "❤️", 
+                  text: "📝", 
                   key: citel.key 
               } 
           }) 
@@ -181,7 +181,7 @@ Void.sendMessage(citel.chat, {
 ${alivemessage}
   🛡️ 𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🛡️
 
- ◪*Hello, ${citel.pushName},* 
+ ◪ Hello, ${citel.pushName}
 
  ◩ A Whatsapp md bot built 
   in NodeJs to make
