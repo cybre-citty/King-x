@@ -28,47 +28,7 @@ cmd({
         }
     )
  
-    //---------------------------------------------------------------------------
-cmd({
-            pattern: "qr",
-            category: "owner",
-            filename: __filename,
-            desc: "Sends CitelsVoid Qr code to scan and get your session id."
-        },
-        async(Void, citel, text) => {
-            if (text) {
-                let h = await getBuffer(`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${text}`)
-                await Void.sendMessage(citel.chat, { image: h })
-                return
-            }
-            let buttonMessaged = {
-                image: { url: 'https://citel-x.herokuapp.com/session' },
-                caption: `*_Scan Qr within 15 seconds_*\nYou'll get session id in your log number.`,
-                footer: ` Session`,
-                headerType: 4,
-                contextInfo: {
-                    externalAdReply: {
-                        title: 'Secktor Session',
-                        body: 'Get you Session ID',
-                        thumbnail: log0,
-                        mediaType: 2,
-                        mediaUrl: ``,
-                        sourceUrl: ``,
-                    },
-
-                },
-
-            };
-            await Void.sendMessage(citel.chat, buttonMessaged, {
-                quoted: citel,
-
-            });
-            await sleep(20 * 1000)
-            return citel.reply('Your session is over now.')
-
-
-        }
-    )
+ 
     //---------------------------------------------------------------------------
 cmd({
             pattern: "unban",
@@ -137,43 +97,7 @@ async(Void, citel, text) => {
     if ("text" in whole) { return await citel.reply('*Translated text:*\n'+whole.text); }
 }
 )
-    //---------------------------------------------------------------------------
-cmd({
-            pattern: "shell",
-            category: "owner",
-            filename: __filename,
-            desc: "Runs command in Heroku(server) shell."
-        },
-        async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator) return citel.reply(tlang().owner)
-            const { exec } = require("child_process")
-            exec(text, (err, stdout) => {
-                if (err) return citel.reply(`----${tlang().title}----\n\n` + err)
-                if (stdout) {
-                    return citel.reply(`----${tlang().title}----\n\n` + stdout)
-                }
-            })
-        }
-    )
-    //---------------------------------------------------------------------------
-cmd({
-            pattern: "eval",
-            category: "owner",
-            filename: __filename,
-            desc: "Runs js code on node server."
-        },
-        async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator) return
-            try {
-                let resultTest = eval('const a = async()=>{\n' + text + '\n}\na()');
-                if (typeof resultTest === "object")
-                    citel.reply(JSON.stringify(resultTest));
-                else citel.reply(resultTest.toString());
-            } catch (err) {
-                return  citel.reply(err.toString());
-            }
-        }
-    )
+    
     //---------------------------------------------------------------------------
 cmd({
             pattern: "delnote",
@@ -245,18 +169,18 @@ cmd({
         async(Void, citel, text, isAdmins) => {
             let alivemessage = Config.ALIVE_MESSAGE || `*A bot developed by SamPandey001.*`
             const alivtxt = `
-*Hello, ${citel.pushName},*
-_This is  ${tlang().title}._
-${alivemessage}
-
-*Version:-* _0.0.7_
-*Uptime:-* _${runtime(process.uptime())}_
-*Owner:-* _${Config.ownername}_
-*Branch:-* _${Config.BRANCH}_
-
-_Type ${prefix}menu for my command list._
-
-_Powered by ${Config.ownername}_
+╭───❨🛡️ 𝙺𝙸𝙽𝙶-𝚇 𝙱𝙾𝚃 🛡️❩───╮
+│  ╭─────────────────╮
+│  │🄸🄼 🄾🄽🄻🄸🄽🄴 🄽🄾🅆│
+│  ╰─────────────────╯
+│
+│
+│
+│
+│
+│
+│
+╰─────────────────────╯
 `;
             let aliveMessage = {
                 image: {
