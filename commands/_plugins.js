@@ -14,6 +14,7 @@ const { plugins,plugindb, remove, isUrl,cmd } = require('../lib')
 //---------------------------------------------------------------------------
 cmd({
         pattern: "plugins",
+ react: "🆗",
         alias :['plist'],
         category: "owner",
         desc: "Shows list of all externally installed modules",
@@ -33,6 +34,7 @@ cmd({
 //---------------------------------------------------------------------------
 cmd({
         pattern: "remove",
+ react: "🆗",
         alias :['uninstall'],
         category: "owner",
         desc: "removes external plugins.",
@@ -54,6 +56,7 @@ cmd({
 //---------------------------------------------------------------------------
 cmd({
         pattern: "install",
+       react: "🆗",
         category: "owner",
         desc: "Installs external modules..",
         filename: __filename
