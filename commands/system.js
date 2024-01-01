@@ -177,6 +177,8 @@ Void.sendMessage(citel.chat, {
             let alivemessage = Config.ALIVE_MESSAGE || `*🧑‍💻 Bot created by theekshana*`
             const alivtxt = `
 
+*👋Hello, ${citel.pushName},*
+${alivemessage}
   🛡️ 𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🛡️
 
  ◪*Hello, ${citel.pushName},* 
@@ -192,7 +194,10 @@ Void.sendMessage(citel.chat, {
 
  ⛲Date:- ${date}
 
- ⛲𝚄𝚙𝚝𝚒𝚖𝚎:- ${runtime(process.uptime())}`;
+ ⛲𝚄𝚙𝚝𝚒𝚖𝚎:- ${runtime(process.uptime())}
+
+
+🤭Powered by ${Config.ownername}`;
             let aliveMessage = {
                 image: {
                  url:  await botpic(),
