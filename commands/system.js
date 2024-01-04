@@ -181,14 +181,15 @@ Void.sendMessage(citel.chat, {
               } 
           }) 
           await Void.sendPresenceUpdate('recording', citel.chat);
-            let alivemessage = Config.ALIVE_MESSAGE || `*🧑‍💻 Bot created by theekshana*`
+            let alivemessage = Config.ALIVE_MESSAGE || `*🧑‍💻 Bot created by ${Config.ownername}_*`
             const alivtxt = `
 
 *👋Hello, ${citel.pushName},*
+
 ${alivemessage}
+
   🛡️ 𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃 🛡️
 
- ◪ Hello, ${citel.pushName}
 
  ◩ A Whatsapp md bot built 
   in NodeJs to make
