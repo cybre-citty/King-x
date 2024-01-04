@@ -20,8 +20,8 @@ const Secktor = require('../lib/commands')
 
     //---------------------------------------------------------------------------
 Secktor.cmd({
-            pattern: "help",
-            alias: ["menu"],
+            pattern: "tm",
+            alias: ["theekshana"],
             desc: "Help list",
             category: "general",
             react: "✨",
@@ -93,8 +93,8 @@ Secktor.cmd({
     )
     //---------------------------------------------------------------------------
 Secktor.cmd({
-            pattern: "list",
-            desc: "list menu",
+            pattern: "tl",
+            desc: "theekshanan",
             category: "general"
         },
         async(Void, citel) => {
