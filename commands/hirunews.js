@@ -9,7 +9,7 @@ cmd({
     },
     async(Void, citel,text) => {
     const hirunew = await hirunews()
-    const caption = `* 𝐇𝐈𝐑𝐔𝐔 𝐍𝐄𝐖𝐒_* 
+    const caption = ` 𝐇𝐈𝐑𝐔𝐔 𝐍𝐄𝐖𝐒
 
  *ᴛɪᴛᴇʟ* :  ${hirunew.result.title}
 
@@ -17,11 +17,7 @@ cmd({
 
  *ᴜʀʟ* : ${hirunew.result.link}
 
- *ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ* : ${hirunew.result.description}
-
-*┗━━━━━━━━━━━━━━⛶*
-
- ©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍʀ ᴅᴜᴍɪᴅᴜ `
+ *ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ* : ${hirunew.result.description} `
 
 await Void.sendMessage(citel.chat, { image: { url: hirunew.result.image }, caption: caption }, { quoted: citel })
 
