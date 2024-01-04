@@ -10,7 +10,7 @@ cmd({
     },
     async(Void, citel,text) => {
     const hirunew = await hirunews()
-    const caption = ` 𝐇𝐈𝐑𝐔𝐔 𝐍𝐄𝐖𝐒 
+    const caption = `╭─────────────────╮│     𝐇𝐈𝐑𝐔𝐔 𝐍𝐄𝐖𝐒    │╰─────────────────╯
 📝 *ᴛɪᴛᴇʟ* :  ${hirunew.result.title}
 
 ⏳ *ᴅᴀᴛᴇ & ᴛɪᴍᴇ* :  ${hirunew.result.dateandtime}
