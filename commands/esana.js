@@ -18,7 +18,7 @@ cmd({
             const ress = await api.news(nn);
             const res = ress.results;
 
-            const txt2 = await Void.sendMessage(citel.chat, {image: {url: res.COVER}, caption: `\n*┣━( _📃QUEEN NICKY ＥＳＥＮＡ📃ＮＥＷＳ📃_ )* \n\n*┃◉* *⇨ ᴛɪᴛᴇʟ :* ${res.TITLE}\n\n*┃◉* *⇨ ᴅᴀᴛᴇ :* ${res.PUBLISHED}\n\n*┃◉* *⇨ ᴜʀʟ :* ${res.URL}\n\n*┃◉* *⇨ Description :* ${res.DESCRIPTION}\n\n*┗━━━━━━━━━━━━━━◆*\n\nQᴜᴇᴇɴ-ɴɪᴄᴋʏ-ᴍᴅ ᴇꜱᴀɴᴀ ɴᴇᴡꜱ 📃\n\n©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍʀ ᴅᴜᴍɪᴅᴜ`}, { quoted: citel });
+            const txt2 = await Void.sendMessage(citel.chat, {image: {url: res.COVER}, caption: `\n*🚚.. 𝗘𝗦𝗔𝗡𝗔 𝗡𝗘𝗪𝗦 📰 * \n\n*📝* * ᴛɪᴛᴇʟ :* ${res.TITLE}\n\n*🗒️* * ᴅᴀᴛᴇ :* ${res.PUBLISHED}\n\n*🖇️* *⇨ ᴜʀʟ :* ${res.URL}\n\n*📌* * Description :* ${res.DESCRIPTION}\n\n**\n\n𝗞𝗜𝗡𝗚-𝗫 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗕𝗢𝗧`}, { quoted: citel });
 
                 await Void.sendMessage(citel.chat, { react: {
         text: "📰",
