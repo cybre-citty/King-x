@@ -9,14 +9,18 @@ cmd({
     },
     async(Void, citel,text) => {
     const sirasa = await sirasanews()
-    const caption = `🚚.. 𝚂𝙸𝚁𝙰𝚂𝙰 𝙽𝙴𝚆𝚂 📑   
- *𝕋𝕀𝕋𝕃𝔼:* ${sirasa.result.title}
+    const caption = `🚚.. 𝚂𝙸𝚁𝙰𝚂𝙰 𝙽𝙴𝚆𝚂 📑  
 
- *𝔻𝔸𝕋𝔼 𝔸ℕ𝔻 𝕋𝕀𝕄𝔼* : ${sirasa.result.dateandtime}
+   
+📝*𝚃𝙸𝚃𝙻𝙴:* ${sirasa.result.title}
 
- *𝔻𝔼𝕊ℂℝ𝕀𝕃𝕋𝕀𝕆ℕ:* ${sirasa.result.description}
+ ⏳*𝙳𝙰𝚃𝙴 𝙰𝙽𝙳 𝚃𝙸𝙼𝙴* : ${sirasa.result.dateandtime}
 
- *ℕ𝔼𝕎𝕊 𝕃𝕀ℕ𝕂:* ${sirasa.result.link}`
+ 📌*𝙳𝙴𝚂𝙲𝚁𝙻𝙻𝚃𝙸𝙾𝙽:* ${sirasa.result.description}
+
+ 🖇️*𝙽𝙴𝚆𝚂 𝙻𝙸𝙽𝙺:* ${sirasa.result.link}
+ 
+ *𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃*`
 
 await Void.sendMessage(citel.chat, { image: { url: sirasa.result.image }, caption: caption }, { quoted: citel })
 
