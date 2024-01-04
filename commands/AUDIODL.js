@@ -11,8 +11,8 @@ var videotime = 36000 // 300 min
 var dlsize = 1000 // 1000mb
 
 cmd({
-            pattern: "song2",
-            react: "🎧",
+            pattern: "son",
+            react: "🎸",
             alias :["son2","𝚢𝚝2"],
             desc: "Downloads audio from youtube.",
             category: "downloader",
@@ -36,29 +36,32 @@ if (text.startsWith("https://youtube.com/shorts/")) {
                     url: anu.thumbnail,
                },
                 caption: `
-
-🎧 𝗤𝗨𝗘𝗘𝗡 𝗡𝗜𝗖𝗞𝗬 𝗦𝗢𝗡𝗚 𝗗𝗢𝗪𝗡𝗟𝗢𝗗𝗘𝗥🎧
- ◨┉━━━━╚◭☬◮╝━━━━━┉◧
-
-╏🎀 *Title:* ${anu.title}
-⦁
-╏🌐 *Duration:* ${anu.timestamp}
-⦁
-╏👀 *Viewers:* ${anu.views}
-⦁
-╏⬆️ *Uploaded:* ${anu.ago}
-⦁
-╏👽 *Author:* ${anu.author.name}
-⦁
-╏📡 *Url* : ${anu.url}
-
-◯┉━━┅━━━━━━━━━┅━━━┉◯
-
-*1.1 ╏ AUDIO* 🎧
-*2.1 ╏ DOCUMENT* 📂
-
-◯┉━━┅━━━━━━━━━┅━━━┉◯
- ©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍʀ ᴅᴜᴍɪᴅᴜ  
+╭─────────────────────╮
+│    🛡️ 𝙺𝙸𝙽𝙶-𝚇 𝚂𝙾𝙽  🛡️    │
+│  Download son King-x.   │
+╰─────────────────────╯
+╭─────────────────────
+│
+│  📝 *Title:* ${anu.title}
+│
+│  🗒️ *Duration:* ${anu.timestamp}
+│
+│  🐉 *Viewers:* ${anu.views}
+│
+│  📌 *Uploaded:* ${anu.ago}
+│
+│  ♻️ *Author:* ${anu.author.name}
+│
+│📡 *Url* : ${anu.url}
+│
+╰─────────────────────
+╭─────────────────────
+│  *1.1 ╏ AUDIO* 🎧
+│ 
+│  *2.1 ╏ DOCUMENT* 📂
+╰─────────────────────
+*𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃*
+ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ${Config.ownername}
 `,
                 footer: tlang().footer,
                 headerType: 4,
@@ -90,10 +93,10 @@ if(!msg.quoted) return
 if (!msg.quoted.isBaileys ) return 
 if(!msg.quoted.caption) return console.log('ew')
 text = msg.quoted.caption
-if (!text.includes('🎧 𝗤𝗨𝗘𝗘𝗡 𝗡𝗜𝗖𝗞𝗬 𝗦𝗢𝗡𝗚 𝗗𝗢𝗪𝗡𝗟𝗢𝗗𝗘𝗥🎧'))  return 
+if (!text.includes('🛡️𝗞𝗜𝗡𝗚-𝗫 𝗦𝗢𝗡 𝗗𝗢𝗪𝗡𝗟𝗢𝗗𝗘𝗥🛡️'))  return 
 text = text.split('╏📡 *Url* : ')[1].split('\n')[0]		
 if(!text) return 
-await Void.sendMessage(citel.chat, { react: {  text: "🎧", key: msg.key } } )			
+await Void.sendMessage(citel.chat, { react: {  text: "1️⃣", key: msg.key } } )			
 		        const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`;
         };
@@ -150,7 +153,7 @@ await Void.sendMessage(citel.chat, { react: {  text: "🎧", key: msg.key } } )
 
 
 cmd({
-            pattern: "2.1",
+            pattern: "1.2",
             react: "",
             alias :[],
             desc: "",
@@ -165,7 +168,7 @@ if(!msg.quoted) return
 if (!msg.quoted.isBaileys ) return 
 if(!msg.quoted.caption) return console.log('ew')
 text = msg.quoted.caption
-if (!text.includes('🎧 𝗤𝗨𝗘𝗘𝗡 𝗡𝗜𝗖𝗞𝗬 𝗦𝗢𝗡𝗚 𝗗𝗢𝗪𝗡𝗟𝗢𝗗𝗘𝗥 🎧'))  return 
+if (!text.includes('🛡️𝗞𝗜𝗡𝗚-𝗫 𝗦𝗢𝗡 𝗗𝗢𝗪𝗡𝗟𝗢𝗗𝗘𝗥🛡️'))  return 
 text = text.split('╏📡 *Url* : ')[1].split('\n')[0]		
 if(!text) return 
 await Void.sendMessage(citel.chat, { react: {  text: "⬇️", key: msg.key } } )			
@@ -211,7 +214,7 @@ await Void.sendMessage(citel.chat, { react: {  text: "⬇️", key: msg.key } } 
                     document: fs.readFileSync(`./${randomName}`),
                     mimetype: 'audio/mpeg',
                     fileName: titleYt + ".mp3",
-		    caption: `* ©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍʀ ᴅᴜᴍɪᴅᴜ 1.1* 👑`,       
+		    caption: `*𝙺𝙸𝙽𝙶-𝚇 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃* ᴄʀᴇᴀᴛᴇᴅ ʙʏ ${Config.ownername}`,       
                     headerType: 4,
                    
                 }
