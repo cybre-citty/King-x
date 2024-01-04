@@ -4,7 +4,7 @@ cmd({
         pattern: "hirunews",
         category: "hiru",
         react: "🗞️",
-        alias :['hiru'],
+        alias :['hiru','හිරු'],
 
         filename: __filename
     },
