@@ -2,6 +2,7 @@ const {cmd } = require('../lib')
 const sirasanews = require('sirasa-news')
 cmd({
         pattern: "sirasa",
+        alias :['සිරස'],
         category: "news",
         react: "📰",
 
