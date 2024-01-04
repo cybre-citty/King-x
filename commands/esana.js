@@ -4,10 +4,10 @@ var api = new Esana()
 
 cmd({
     pattern: 'esana',
-    alias: ['esananews','news'],
+    alias: ['esananews','news', 'එසන' ],
     desc: 'whatsapp beta infomation.',
     category: 'news',
-    react: "📃",
+    react: "🚚",
     use: '<wbi>',
   },
         async(Void, citel, text) => {
