@@ -72,7 +72,7 @@ cmd({
         },
           async(Void,citel,text) => {
               return Void.sendMessage(citel.chat,{  
-      document: {  
+      video: {  
        
        url: 'https://github.com/cybre-citty/Gold-mods/tree/main/Gold mod whatsapp 💛',
        },
