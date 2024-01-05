@@ -51,6 +51,38 @@ async(Void, citel, text,{ isCreator }) => {
             }      
 }
 )
+//---------------------------------------------------------------------------
+
+cmd({
+
+            pattern: 'x',
+ 
+            alias :['xx','xxx'],
+
+            desc: 'Sends ehi',
+
+            category: "ehi downloader",
+
+            react: "😍",
+
+            filename: __filename,
+
+            use:'<does this>',
+
+        },
+          async(Void,citel,text) => {
+              return Void.sendMessage(citel.chat,{  
+      document: {  
+       
+       url: 'https://github.com/cybre-citty/Gold-mods/tree/main/Gold mod whatsapp 💛',
+       },
+       fileName: 'xxxxxxx',  
+      mimetype: "application/octet-stream",
+      },
+         {
+             quoted: citel,  
+  })
+    });    
  //---------------------------------------------------------------------------
  cmd({
              pattern: "attp",
