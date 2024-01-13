@@ -2,7 +2,7 @@ const fs = require('fs-extra')
 if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/config.env' })
 
 global.owner = "94762327630"
-global.mongodb = process.env.MONGODB_URI || "mongodb://mongo:a62g1fD2226AbCDDcdAE6Ghd13e13F3d@roundhouse.proxy.rlwy.net:37771"
+global.mongodb = process.env.MONGODB_URI || "mongodb://mongo:Fhh5C6Cafgbad2GDgEdeDgFga6fFE43D@monorail.proxy.rlwy.net:43357"
 global.port= process.env.PORT || 5000
 global.email = 'not@gmail.com'
 global.github = 'https://github.com/cybre-citty/King-x'
