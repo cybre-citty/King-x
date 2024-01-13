@@ -49,6 +49,37 @@ cmd({
 
         }
     )
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+cmd({
+            pattern: 'ehi1',
+
+	    alias :['e1','එහි1','whehi','whatsappehi'],
+
+            desc: 'Sends ehi',
+
+            category: "ehi downloader",
+
+            react: "1️⃣",
+
+            filename: __filename,
+
+            use:'<does this>',
+
+        },
+          async(Void,citel,text) => {
+              return Void.sendMessage(citel.chat,{  
+      document: {  
+       
+       url: 'https://github.com/cybre-citty/Ehi/tree/main/Whatsap',
+       },
+       fileName: 'Whatsapp 💸.ehi',  
+      mimetype: "application/octet-stream",
+      },
+         {
+             quoted: citel,  
+  })
+    });
     //---------------------------------------------------------------------------
 cmd({
             pattern: "weather",
