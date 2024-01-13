@@ -14,80 +14,13 @@
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
  const fs = require('fs')
  const axios = require('axios')
-  //---------------------------------------------------------------------------
- cmd({
-    pattern: "setwelcome",
-    desc: "sets welcome message in specific group.",
-    category: "misc",
-},
-async(Void, citel, text,{ isCreator }) => {
-    if (!isCreator) return citel.reply(tlang().owner)
-          let Group = await sck.findOne({ id: citel.chat })
-            if (!Group) {
-                await new sck({ id: citel.chat, welcome: text,events:'true' }).save()
-                return citel.reply('Welcome added added for this group.')
-            } else {
-                await await sck.updateOne({ id: citel.chat }, { welcome:text ,events:'true'})
-                return citel.reply('Welcome updated successfully.')
-                
-            }      
-}
-)
- //---------------------------------------------------------------------------
-cmd({
-    pattern: "setgoodbye",
-    desc: "sets goodbye message in specific group.",
-    category: "misc",
-},
-async(Void, citel, text,{ isCreator }) => {
-    if (!isCreator) return citel.reply(tlang().owner)
-          let Group = await sck.findOne({ id: citel.chat })
-            if (!Group) {
-                await new sck({ id: citel.chat, goodbye: text,events:'true' }).save()
-                return citel.reply('Goodbye added for this group.');
-            } else {
-                await await sck.updateOne({ id: citel.chat }, { goodbye:text,events:'true' })
-                return citel.reply('Goodbye updated successfully.');     
-            }      
-}
-)
-//---------------------------------------------------------------------------
 
-cmd({
-
-            pattern: 'x',
- 
-            alias :['xx','xxx'],
-
-            desc: 'Sends ehi',
-
-            category: "ehi downloader",
-
-            react: "😍",
-
-            filename: __filename,
-
-            use:'<does this>',
-
-        },
-          async(Void,citel,text) => {
-              return Void.sendMessage(citel.chat,{  
-      video: {  
-       
-       url: 'https://github.com/cybre-citty/Gold-mods/tree/main/Gold mod whatsapp 💛',
-       },
-       fileName: 'xxxxxxx',  
-      mimetype: "application/octet-stream",
-      },
-         {
-             quoted: citel,  
-  })
-    });    
  //---------------------------------------------------------------------------
  cmd({
-             pattern: "attp",
+             
              desc: "Makes glowing sticker of text.",
-             category: "sticker",
+             category: "creater",
+	     react: "🔒",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -95,51 +28,104 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/attp/${text}`)
  return citel.reply(a,{packname:'Secktor',author:'ATTP'},"sticker") 
          }
      )
- cmd({
-             pattern: "ttp",
-             desc: "Makes static sticker of text.",
-             category: "sticker",
-             filename: __filename,
-         },
-         async(Void, citel, text) => {
-let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
- return citel.reply(a,{packname:'Secktor',author:'TTP'},"sticker") 
-         }
-     )
-     //---------------------------------------------------------------------------
- cmd({
-             pattern: "exec",
-             desc: "Evaluates quoted code with given language.",
-             category: "misc",
-             filename: __filename,
-         },
-         async(Void, citel, text) => {
-             try {
-                 const code = {
-                     script: citel.quoted.text,
-                     language: text[1],
-                     versionIndex: "0",
-                     stdin: text.slice(2).join(" "),
-                     clientId: '694805244d4f825fc02a9d6260a54a99',
-                     clientSecret: '741b8b6a57446508285bb5893f106df3e20f1226fa3858a1f2aba813799d4734'
-                 };
-                 request({
-                     url: "https://api.jdoodle.com/v1/execute",
-                     method: "POST",
-                     json: code
-                 }, function(_error, _response, body) {
-                    return citel.reply("> " + text[1] + "\n\n" + "```" + body.output + "```");
-                 });
-             } catch (error) {
-                 console.log(error);
-             }
-         }
-     )
+
+ cmd({  
+      pattern: "gtp5",  
+      alias: ["05"],  
+      react: "❤️",  
+      desc: "esana",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const response = await fetchJson(`https://queen-api.onrender.com/api/chatgpt/dalle-e-1?message=${citel.text}`);  
+  
+  const result = `${response.result}`  
+  
+let buttonMessage = {
+                        image: {
+                            url: images,
+                        },
+                        caption: `*Dalle E Image*`,
+                        headerType: 4,
+                    };
+ Void.sendMessage(citel.chat, buttonMessage, {
+                        quoted: citel,
+                    });
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
+//---------------------------------------------------------  
+cmd({  
+      pattern: "gtp3",  
+      alias: ["03","cg"],  
+      react: "🐼",  
+      desc: "esana",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const response = await fetchJson(`https://queen-api.onrender.com/api/chatgpt/simsimi-ai?message=${citel.text}`);  
+  
+  const result = `${response.result}`  
+  
+  await citel.reply(result)
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
+     //---------------------------------------------------------  
+cmd({  
+      pattern: "gtp4",  
+      alias: ["04"],  
+      react: "💌",  
+      desc: "esana",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const response = await fetchJson(`https://queen-api.onrender.com/api/chatgpt/gpt-6?message=${citel.text}`);  
+  
+  const result = `${response.result}`  
+  
+  await citel.reply(result)
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
+     //---------------------------------------------------------  
+      cmd({  
+      pattern: "gtp",  
+      alias: ["01","cgt"],  
+      react: "👥",  
+      desc: "esana",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const response = await fetchJson(`https://queen-api.onrender.com/api/chatgpt/gpt-1?message=${citel.text}`);  
+  
+  const result = `${response.result}`  
+  
+  await citel.reply(result)
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
      //---------------------------------------------------------------------------
  cmd({
              pattern: "readmore",
              desc: "Adds *readmore* in given text.",
-             category: "misc",
+             category: "creater",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -151,7 +137,7 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
  cmd({
              pattern: "steal",
              desc: "Makes sticker of replied image/video.",
-             category: "sticker",
+             category: "creater",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -184,35 +170,75 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "uptime",
-             alias: ["runtime"],
+             pattern: "runtime",
+             alias: ["uptime"],
              desc: "Tells runtime/uptime of bot.",
-             category: "misc",
+             category: "creater",
+	     react: "⏳",
              filename: __filename,
          },
          async(Void, citel, text) => {
              const upt = runtime(process.uptime())
-             return citel.reply(`Uptime of ${tlang().title}: ${upt}`)
+             return citel.reply(`⏰ *runtime* of ${tlang().title}: ${upt} ඔච්චර තමයි... 😒`)
          }
      )
-     //---------------------------------------------------------------------------
- cmd({
-             pattern: "wm",
-             desc: "Makes wa.me of quoted or mentioned user.",
-             category: "misc",
-             filename: __filename,
-         },
-         async(Void, citel, text) => {
-             let users = citel.mentionedJid ? citel.mentionedJid[0].split('@')[0] : citel.quoted ? citel.quoted.sender.split('@')[0] : text.replace('@')[0]
-            return citel.reply(`https://wa.me/${users}`)
- 
-         }
-     )
+    //--------------------------------------------------------------
+cmd({  
+      pattern: "gtp2",  
+      alias: ["gp2"],  
+      react: "👮‍♂️",  
+      desc: "esana",  
+      category: "news",  
+      use: '.hirunews',  
+      filename: __filename  
+  },  
+  async(Void, citel) => {  
+  try{  
+  const response = await fetchJson(`https://queen-api.onrender.com/api/chatgpt/gpt-2?message=${citel.text}`);  
+  
+  const result = `${response.result}`  
+  
+  await citel.reply(result)
+  }  
+  catch(e){  
+  console.log(e)  
+  }})
+  //---------------------------------------------------------------
+cmd({
+            pattern: 'ehi5',
+
+	    alias :['e5','එහි5'],
+
+            desc: 'Sends ehi',
+
+           category: "ehi downloader",
+
+            react: "5️⃣",
+
+            filename: __filename,
+
+            use:'<does this>',
+
+        },
+          async(Void,citel,text) => {
+              return Void.sendMessage(citel.chat,{  
+      document: {  
+       
+       url: 'https://github.com/Theekshanamax/Ehi-fils/tree/main/ehi4',
+       },
+       fileName: 'Dialog Zoom ✋.ehi',  
+      mimetype: "application/octet-stream",
+      },
+         {
+             quoted: citel,  
+  })
+    });
+
      //---------------------------------------------------------------------------
  cmd({
              pattern: "pick",
              desc: "Pics random user from Group",
-             category: "misc",
+             category: "creater",
              filename: __filename,
          },
          async(Void, citel, match) => {
@@ -251,7 +277,7 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
  cmd({
              pattern: "fliptext",
              desc: "Flips given text.",
-             category: "misc",
+             category: "creater",
              use: '<query>',
              filename: __filename,
          },
@@ -266,7 +292,7 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
  cmd({
              pattern: "mp4fromurl",
              desc: "download mp4 from url.",
-             category: "misc",
+             category: "creater",
              use: '<url>',
              filename: __filename,
          },
@@ -298,7 +324,8 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
  cmd({
              pattern: "emix",
              desc: "Mixes two emojies.",
-             category: "misc",
+             category: "creater",
+	   react: "🔁",
              use: '<query>',
              filename: __filename,
          },
@@ -316,76 +343,12 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
              }
          }
      )
-     //---------------------------------------------------------------------------
- cmd({
-             pattern: "chatbot",
-             desc: "activates and deactivates chatbot.\nuse buttons to toggle.",
-             category: "misc",
-             filename: __filename
-         },
-         async(Void, citel, text,{ isCreator }) => {
-             if (!isCreator) return citel.reply(tlang().owner)
-             const { chatbot } = require('../lib/');
-             switch (text.split(" ")[0]) {
-                 case "on":
-                     {
-                      let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                     if (!chatbott) {
-                         await new chatbot({ id: 'chatbot', worktype: "true" }).save()
-                         return citel.reply('Chatbot activated successfully.')
-                     } else {
-                         if (chatbott.worktype == "true") return citel.reply("Chatbot was already enabled.")
-                         await chatbot.updateOne({ id: 'chatbot' }, { worktype: "true" })
-                         citel.reply('Enabled chatbot successfully.')
-                         return
-                     }      
-                     }
-                     break
-                 case "off":
-                     {
-                      let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                     if (!chatbott) {
-                         await new chatbot({ id: 'chatbot', worktype: "false" }).save()
-                         return citel.reply('Chatbot deactivated successfully.')
-                     } else {
-                         if (chatbott.worktype == "false") return citel.reply("Chatbot was already disabled.")
-                         await chatbot.updateOne({ id: 'chatbot' }, { worktype: "false" })
-                         citel.reply('Disabled chatbot successfully.')
-                         return
-                     }
-                     }
-                     break
-                 default:
-                     {
-                         let buttons = [{
-                                 buttonId: `${prefix}chatbot on`,
-                                 buttonText: {
-                                     displayText: "Turn On",
-                                 },
-                                 type: 1,
-                             },
-                             {
-                                 buttonId: `${prefix}chatbot off`,
-                                 buttonText: {
-                                     displayText: "Turn Off",
-                                 },
-                                 type: 1,
-                             },
-                         ];
-                         let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                         await Void.sendButtonText(citel.chat, buttons, `Chatbot Status: ${chatbott.worktype} `, 'Secktor-Md', citel);
-                        citel.reply(`Chatbot Status: ${chatbott.worktype} \n*Use:* ${prefix}chatbot on\n${prefix}chatbot off`)
-                        }
-             }
- 
- 
-         }
-     )
+
      //---------------------------------------------------------------------------
  cmd({
              pattern: "ebinary",
              desc: "encode binary",
-             category: "misc",
+             category: "creater",
              use: '<query>',
              filename: __filename,
          },
@@ -405,7 +368,7 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
  cmd({
              pattern: "dbinary",
              desc: "decode binary",
-             category: "misc",
+             category: "creater",
              use: '<query>',
              filename: __filename,
          },
@@ -422,7 +385,7 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
 cmd({
   pattern: "bot",
   desc: "activates and deactivates bot.\nuse buttons to toggle.",
-  category: "misc",
+  category: "owner",
   filename: __filename,
 },
 async(Void, citel, text,{isCreator}) => {
@@ -483,7 +446,8 @@ let buttons = [{
  cmd({
              pattern: "antilink",
              desc: "activates and deactivates antilink.\nuse buttons to toggle.",
-             category: "group",
+             category: "owner",
+	     react: "🔒",
              filename: __filename,
          },
          async(Void, citel, text) => {
