@@ -4,7 +4,7 @@ cmd({
         pattern: "sirasa",
         alias :['සිරස'],
         category: "news",
-        react: "📰",
+        react: "🇱🇰",
 
         filename: __filename
     },
