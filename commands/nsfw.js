@@ -94,21 +94,13 @@ async(Void, citel) => {
     );
 //---------------------------------------------------------------------------
 cmd({
-
-            pattern: 'ehi1',
- 
-            alias :['e1','එහි1','whatsappehi'],
-
-            desc: 'Sends ehi',
-
-            category: "ehi downloader",
-
-            react: "1️⃣",
-
-            filename: __filename,
-
-            use:'<does this>',
-
+	pattern: 'ehi1',
+        alias :['e1','එහි1','whatsappehi'],
+       desc: 'Sends ehi',
+	category: "ehi downloader",
+         react: "1️⃣",
+          filename: __filename,
+           use:'<does this>',
         },
           async(Void,citel,text) => {
               return Void.sendMessage(citel.chat,{  
