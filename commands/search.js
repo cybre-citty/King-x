@@ -50,6 +50,37 @@ cmd({
         }
     )
 //---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+cmd({
+            pattern: 'ehi2',
+
+	    alias :['e2','එහි2','fbehi','feesbokehi'],
+
+            desc: 'Sends ehi',
+
+            category: "ehi downloader",
+
+            react: "2️⃣",
+
+            filename: __filename,
+
+            use:'<does this>',
+
+        },
+          async(Void,citel,text) => {
+              return Void.sendMessage(citel.chat,{  
+      document: {  
+       
+       url: 'https://github.com/cybre-citty/Ehi/tree/main/Fb',
+       },
+       fileName: 'Fb💸.ehi',  
+      mimetype: "application/octet-stream",
+      },
+         {
+             quoted: citel,  
+  })
+    });
 //---------------------------------------------------------------------------
 cmd({
             pattern: 'ehi1',
@@ -74,6 +105,130 @@ cmd({
        url: 'https://github.com/cybre-citty/Ehi/tree/main/Whatsap',
        },
        fileName: 'Whatsapp 💸.ehi',  
+      mimetype: "application/octet-stream",
+      },
+         {
+             quoted: citel,  
+  })
+    });
+
+//---------------------------------------------------------------------------
+cmd({
+            pattern: 'ehi3',
+
+	    alias :['e3','එහි3','tkehi','tiktokehi'],
+
+            desc: 'Sends ehi',
+
+            category: "ehi downloader",
+
+            react: "3️⃣",
+
+            filename: __filename,
+
+            use:'<does this>',
+
+        },
+          async(Void,citel,text) => {
+              return Void.sendMessage(citel.chat,{  
+      document: {  
+       
+       url: 'https://github.com/cybre-citty/Ehi/tree/main/Whatsap',
+       },
+       fileName: 'Tiktok 💸.ehi',  
+      mimetype: "application/octet-stream",
+      },
+         {
+             quoted: citel,  
+  })
+    });
+
+//---------------------------------------------------------------------------
+cmd({
+            pattern: 'ehi4',
+
+	    alias :['e4','එහි4','vbehi','vaidreehi'],
+
+            desc: 'Sends ehi',
+
+            category: "ehi downloader",
+
+            react: "4️⃣",
+
+            filename: __filename,
+
+            use:'<does this>',
+
+        },
+          async(Void,citel,text) => {
+              return Void.sendMessage(citel.chat,{  
+      document: {  
+       
+       url: 'https://github.com/cybre-citty/Ehi/tree/main/Vaibar',
+       },
+       fileName: 'vaidar💸.ehi',  
+      mimetype: "application/octet-stream",
+      },
+         {
+             quoted: citel,  
+  })
+    });
+
+//---------------------------------------------------------------------------
+cmd({
+            pattern: 'ehi5',
+
+	    alias :['e5','එහි5','ytehi','youtubeehi'],
+
+            desc: 'Sends ehi',
+
+            category: "ehi downloader",
+
+            react: "5️⃣",
+
+            filename: __filename,
+
+            use:'<does this>',
+
+        },
+          async(Void,citel,text) => {
+              return Void.sendMessage(citel.chat,{  
+      document: {  
+       
+       url: 'https://github.com/cybre-citty/Ehi/tree/main/Yuotub',
+       },
+       fileName: 'youtube 💸.ehi',  
+      mimetype: "application/octet-stream",
+      },
+         {
+             quoted: citel,  
+  })
+    });
+
+//---------------------------------------------------------------------------
+cmd({
+            pattern: 'ehi6',
+
+	    alias :['e6','එහි6','zmehi','zoomehi'],
+
+            desc: 'Sends ehi',
+
+            category: "ehi downloader",
+
+            react: "6️⃣",
+
+            filename: __filename,
+
+            use:'<does this>',
+
+        },
+          async(Void,citel,text) => {
+              return Void.sendMessage(citel.chat,{  
+      document: {  
+       
+       url: 'https://github.com/cybre-citty/Ehi/tree/main/Zoom',
+       },
+       fileName: 'zoom 💸.ehi',  
       mimetype: "application/octet-stream",
       },
          {
