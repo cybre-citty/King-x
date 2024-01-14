@@ -1,17 +1,17 @@
 const fs = require('fs-extra')
 if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/config.env' })
 
-🛃 global.owner = "94762327630"
-🛂 global.mongodb = process.env.MONGODB_URI || "mongodb://mongo:Fhh5C6Cafgbad2GDgEdeDgFga6fFE43D@monorail.proxy.rlwy.net:43357"
-🚤 global.port= process.env.PORT || 5000
-♻️ global.email = 'not@gmail.com'
-📧 global.github = 'https://github.com/cybre-citty/King-x'
-🗺️ global.location = 'Colombo SL'
-👮‍♂️ global.gurl = 'https://instagram.com/' // add your username
-😎 global.sudo = process.env.SUDO || '94762327630'
-😜 global.devs = '94762327630';
-📝 global.website = 'https://github.com/cybre-citty/King-x' //wa.me/+91000000000000
-🖼️ global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://telegra.ph/file/ac185578438c68f4bf911.jpg'
+global.owner = "94762327630"
+global.mongodb = process.env.MONGODB_URI || "mongodb://mongo:Fhh5C6Cafgbad2GDgEdeDgFga6fFE43D@monorail.proxy.rlwy.net:43357"
+global.port= process.env.PORT || 5000
+global.email = 'not@gmail.com'
+global.github = 'https://github.com/cybre-citty/King-x'
+global.location = 'Colombo SL'
+global.gurl = 'https://instagram.com/' // add your username
+global.sudo = process.env.SUDO || '94762327630'
+global.devs = '94762327630';
+global.website = 'https://github.com/cybre-citty/King-x' //wa.me/+91000000000000
+global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://telegra.ph/file/26815f8f39b39b22ded26.jpg'
 
  👇 වෙනස් කරන්න ගනන් 📝
  𝗧𝗵𝗲𝗲𝗸𝘀𝗵𝗮𝗻𝗮 𝗱𝗶𝘃𝗼𝗹𝗼𝗽𝗮𝗿🇱🇰
